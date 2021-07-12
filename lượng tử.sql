@@ -31,6 +31,8 @@ CREATE TABLE `dausach` (
   `MaDauSach` varchar(255) NOT NULL,
   `MaTuaSach` varchar(255) NOT NULL,
   `NgonNgu` varchar(255) NOT NULL,
+  `DichGia` varchar(255) NOT NULL,
+  `GiaTien` int(11) NOT NULL,
   `MaNXB` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
