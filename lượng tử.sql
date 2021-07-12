@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `dausach` (
   `MaDauSach` varchar(255) NOT NULL,
   `MaTuaSach` varchar(255) NOT NULL,
+  `MaDDC` int(11) NOT NULL,
   `NgonNgu` varchar(255) NOT NULL,
   `DichGia` varchar(255) NOT NULL,
   `GiaTien` int(11) NOT NULL,
@@ -116,7 +117,7 @@ CREATE TABLE `tacgia` (
 --
 
 CREATE TABLE `theloai` (
-  `MaLoaiSach` varchar(255) NOT NULL,
+  `MaTheLoai` varchar(255) NOT NULL,
   `TenLoaiSach` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
