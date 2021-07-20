@@ -7,6 +7,7 @@ Library management
 Front end
 - Giao diện trang chủ đẹp, trang trọng.
 - Có form nhập liệu, sửa, xóa.
+
 Backend
 - Hiển thị danh sách sách theo sắp xếp của bảng chữ cái. 
 - Có chức năng tìm kiếm sách theo tên sách, tên tác giả, tên nhà xuất bản, mã DDC, tên dịch giả, quốc gia,... 
