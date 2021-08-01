@@ -18,4 +18,4 @@ Backend
 
 # Công việc đã làm : 
 
--upload project bằng laravel ( chỉ cần sửa user với pass của database là vào được bình thường)
+-upload project bằng laravel ( chỉ cần coppy vào xampp sửa user với pass của database là vào được bình thường)
