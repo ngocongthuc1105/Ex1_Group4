@@ -16,4 +16,6 @@ Backend
 - Có chức năng tính tổng giá tiền sách theo tên tác giả, nhà xuất bản, phân loại. 
 - Có chức năng hiển thị review nội dung của từng cuốn sách. 
 
-# Công việc đã làm : 0
+# Công việc đã làm : 
+
+-upload project bằng laravel ( chỉ cần sửa user với pass của database là vào được bình thường)
