@@ -15,9 +15,9 @@ http://www.tooplate.com/view/2092-shelf
 
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="{{asset('public/frontend/font-awesome-4.7.0/css/font-awesome.min.css')}}">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{{asset('public/frontend/css/tooplate-style.css')}}">                                   <!-- Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,11 +41,11 @@ http://www.tooplate.com/view/2092-shelf
 
                     <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
                         <ul class="nav nav-fill tm-main-nav-ul">
-                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Catalogs</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
-                            <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Our Team</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,7 +72,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-01.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-01.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
 
                                     <p class="tm-figcaption">Nam vitae odio</p>
@@ -81,7 +81,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-02.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-02.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Integer ornare</p>
                                 </a>
@@ -89,7 +89,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-03.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-03.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Cras non augue</p>
                                 </a>
@@ -97,7 +97,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-04.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-04.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Dolor lacus</p>
                                 </a>
@@ -105,7 +105,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-05.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-05.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Quisque velit</p>
                                 </a>
@@ -113,7 +113,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-06.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-06.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Suspendisse suscipit</p>
                                 </a>
@@ -121,7 +121,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-07.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-07.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Facilisis justo</p>
                                 </a>
@@ -129,7 +129,7 @@ http://www.tooplate.com/view/2092-shelf
                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <a href="preview.html">
                                     <div class="tm-gallery-item-overlay">
-                                        <img src="img/image-08.jpg" alt="Image" class="img-fluid tm-img-center">
+                                        <img src="public/frontend/img/image-08.jpg" alt="Image" class="img-fluid tm-img-center">
                                     </div>
                                     <p class="tm-figcaption">Vivamus facilisis</p>
                                 </a>
@@ -171,9 +171,9 @@ http://www.tooplate.com/view/2092-shelf
         </div>
 
         <!-- load JS files -->
-        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
-        <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
+        <script src="{{asset('public/frontend/js/jquery-1.11.3.min.js')}}"></script>         <!-- jQuery (https://jquery.com/download/) -->
+        <script src="{{asset('public/frontend/js/popper.min.js')}}"></script>                <!-- Popper (https://popper.js.org/) -->
+        <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
         <script>
 
             $(document).ready(function(){
