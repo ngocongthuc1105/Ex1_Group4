@@ -42,7 +42,7 @@ http://www.tooplate.com/view/2092-shelf
                    <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
                         <ul class="nav nav-fill tm-main-nav-ul">
                             <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Catalogs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/catalog')}}">Catalogs</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Our Team</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li>

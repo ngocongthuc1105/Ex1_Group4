@@ -4,6 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="{{asset('public/backend/css/bootstrap.min.css')}}" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="{{asset('public/backend/css/style.css')}}" rel='stylesheet' type='text/css' />
+<link href="{{asset('public/backend/css/style-responsive.css')}}" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="{{asset('public/backend/css/font.css')}}" type="text/css"/>
+<link href="{{asset('public/backend/css/font-awesome.css')}}" rel="stylesheet"> 
+<link rel="stylesheet" href="{{asset('public/backend/css/morris.css')}}" type="text/css"/>
+<!-- calendar -->
+<link rel="stylesheet" href="{{asset('public/backend/css/monthly.css')}}">
+<!-- //calendar -->
+<!-- //font-awesome icons -->
+<script src="{{asset('public/backend/js/jquery2.0.3.min.js')}}"></script>
+<script src="{{asset('public/backend/js/raphael-min.js')}}"></script>
+<script src="{{asset('public/backend/js/morris.js')}}"></script>
 <!--
 
 Template 2092 Shelf
@@ -15,7 +39,7 @@ http://www.tooplate.com/view/2092-shelf
 
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{{asset('public/frontend/font-awesome-4.7.0/css/font-awesome.min.css')}}">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('public/frontend/font/css/font-awesome.min.css')}}">                <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->
     <link rel="stylesheet" href="{{asset('public/frontend/css/tooplate-style.css')}}">                                   <!-- Templatemo style -->
 
@@ -42,7 +66,7 @@ http://www.tooplate.com/view/2092-shelf
                     <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
                         <ul class="nav nav-fill tm-main-nav-ul">
                             <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Catalogs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/catalog')}}">Catalogs</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Our Team</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li>
@@ -54,126 +78,24 @@ http://www.tooplate.com/view/2092-shelf
 
             <div class="tm-main-content">
                 <section class="tm-margin-b-l">
-                    <header>
-                        <h2 class="tm-main-title">Welcome to our bookstore</h2>
-                    </header>
-
-                    <p>Shelf HTML template is provided by Tooplate. Please tell your friends about it. Thank you. Images are from Unsplash website. In tincidunt metus sed justo tincidunt sollicitudin. Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat.</p>
-
-                    <div class="input-group">
-                      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                      aria-describedby="search-addon" />
-                      <button type="button" class="btn btn-outline-primary">search</button>
-                    </div>
-
-                    <div class="tm-gallery">
-                        <div class="row">
-
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-01.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-
-                                    <p class="tm-figcaption">Nam vitae odio</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-02.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Integer ornare</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-03.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Cras non augue</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-04.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Dolor lacus</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-05.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Quisque velit</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-06.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Suspendisse suscipit</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-07.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Facilisis justo</p>
-                                </a>
-                            </figure>
-                            <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                                <a href="preview.html">
-                                    <div class="tm-gallery-item-overlay">
-                                        <img src="public/frontend/img/image-08.jpg" alt="Image" class="img-fluid tm-img-center">
-                                    </div>
-                                    <p class="tm-figcaption">Vivamus facilisis</p>
-                                </a>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <nav class="tm-gallery-nav">
-                        <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link active" href="#">1</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">2</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">3</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">4</a></li>
-                        </ul>
-                    </nav>
+                            @yield('user_content')
                 </section>
-
-                <!-- <section class="media tm-highlight tm-highlight-w-icon">
-
-                    <div class="tm-highlight-icon">
-                        <i class="fa tm-fa-6x fa-meetup"></i>
-                    </div>
-
-                    <div class="media-body">
-                        <header>
-                            <h2>Need Help?</h2>
-                        </header>
-                        <p class="tm-margin-b">Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat. Phasellus arcu leo, sagittis fringilla nisi et, pulvinar vestibulum mi. Maecenas mollis ullamcorper est at dignissim.</p>
-                        <a href="" class="tm-white-bordered-btn">Live Chat</a>
-                    </div>
-                </section> -->
-            </div>
-
-            <footer>
-                Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company
-
-                - Designed by Tooplate
-            </footer>
-        </div>
+                    
+             </div>
 
         <!-- load JS files -->
         <script src="{{asset('public/frontend/js/jquery-1.11.3.min.js')}}"></script>         <!-- jQuery (https://jquery.com/download/) -->
         <script src="{{asset('public/frontend/js/popper.min.js')}}"></script>                <!-- Popper (https://popper.js.org/) -->
-        <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
+        <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>   
+                  <!-- Bootstrap (https://getbootstrap.com/) -->
+                  <script src="{{asset('public/backend/js/bootstrap.js')}}"></script>
+<script src="{{asset('public/backend/js/jquery.dcjqaccordion.2.7.js')}}"></script>
+<script src="{{asset('public/backend/js/scripts.js')}}"></script>
+<script src="{{asset('public/backend/js/jquery.slimscroll.js')}}"></script>
+<script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
+<!-- morris JavaScript -->  
         <script>
 
             $(document).ready(function(){
@@ -184,6 +106,7 @@ http://www.tooplate.com/view/2092-shelf
             });
 
         </script>
+
 
 </body>
 </html>

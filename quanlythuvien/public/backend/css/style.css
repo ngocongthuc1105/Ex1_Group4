@@ -24,6 +24,7 @@ body a{
 	-ms-transition: 0.5s all ease;
 	text-decoration:none;
 }
+
 h1,h2,h3,h4,h5,h6{
 	margin:0;			   
 }
@@ -3142,5 +3143,12 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 }
 .chart_agile_bottom {
     padding: 0;
+}
+span.text_alert {
+    font-weight: bold;
+    color: red;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
 }
 }
