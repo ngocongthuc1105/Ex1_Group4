@@ -4,7 +4,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Show Stories
+      Show All Users
     </div>
     <?php
        $message = Session::get('message');
@@ -43,24 +43,24 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên Sách</th>
-            <th>Tên Tác Giả</th>
-            <th>Thể Loại</th>
+            <th>Họ và Tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
             <th style="width:30px;">Chỉnh Sửa</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($all_stories as $key => $cate_pro)
+          @foreach($all_user as $key => $cate_pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$cate_pro -> ten_sach}}</td>
-            <td><span class="text-ellipsis">{{$cate_pro -> ten_tac_gia}}</span></td>
-            <td><span class="text-ellipsis">{{$cate_pro -> the_loai}}</span></td>
+            <td>{{$cate_pro -> user_name}}</td>
+            <td><span class="text-ellipsis">{{$cate_pro -> user_email}}</span></td>
+            <td><span class="text-ellipsis">{{$cate_pro -> user_phone}}</span></td>
             <td>
-              <a href="{{URL::to('/edit-stories/'.$cate_pro -> ma_sach)}}" class="active stylling-edit" ui-toggle-class="">
+              <a href="{{URL::to('/edit-user/'.$cate_pro -> user_id)}}" class="active stylling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i>
               </a>
-              <a onclick="return confirm('Bạn có muốn xoá sách này không?')" href="{{URL::to('/delete-stories/'.$cate_pro -> ma_sach)}}" class="active stylling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có muốn xoá tài khoản này không?')" href="{{URL::to('/delete-user/'.$cate_pro -> user_id)}}" class="active stylling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
@@ -73,7 +73,7 @@
       <div class="row">
         
         <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 user</small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">

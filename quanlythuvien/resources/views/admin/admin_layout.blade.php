@@ -281,15 +281,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>User Management</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="gallery.html">Show User</a></li>
-                        <li><a href="404.html">Add User</a></li>
-                        <li><a href="registration.html">Delete User</a></li>
+                        <li><a href="{{URL::to('/add-user')}}">Add User</a></li>
+                        <li><a href="{{URL::to('/all-user')}}">Show User</a></li>
+                        
                     </ul>
                 </li>
                 <li>
-                    <a href="login.html">
+                    <a href="{{URL::to('/logout')}}">
                         <i class="fa fa-user"></i>
-                        <span>Login Page</span>
+                        <span>Log Out</span>
                     </a>
                 </li>
             </ul>           
