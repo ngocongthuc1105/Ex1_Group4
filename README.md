@@ -19,3 +19,5 @@ Backend
 # Công việc đã làm : 
 
 -upload project bằng laravel ( chỉ cần coppy vào xampp sửa user với pass của database là vào được bình thường)
+link file vendor(tải file về giải nén vào trong file quanlythuvien là được)
+https://drive.google.com/file/d/1iQCsKsUwRdDXCXMrJRR8Nu932gabyKtI/view?usp=sharing
