@@ -34,6 +34,7 @@
                                     <label for="exampleInputEmail1">Address</label>
                                     <input type="text"value="{{$edit_value->user_address}}" name="user_address"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
+                                
                             
                                 <!--<div class="form-group">
                                     <label for="exampleInputFile">File input</label>

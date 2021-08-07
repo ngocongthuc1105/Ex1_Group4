@@ -30,14 +30,28 @@
                                     <label for="exampleInputEmail1">Dịch Giả</label>
                                     <input type="text" value="{{$edit_value->dich_gia}}"name="stories_translator"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Thể Loại</label>
-                                    <input type="text"value="{{$edit_value->the_loai}}" name="stories_category"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Mã DDC</label>
-                                    <input type="text "value="{{$edit_value->ma_ddc}}"name="stories_ddccode" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                </div>
+                                <label for="exampleInputEmail1">Thể Loại</label>
+                                <select class="form-control m-bot15"type="text"value="{{$edit_value->the_loai}}" name="stories_category"class="form-control" id="exampleInputEmail1" placeholder="Enter email">    
+                                    <option>Truyện Tranh</option>
+                                    <option>Truyện Trinh Thám</option>
+                                    <option>Truyện Võ Hiệp</option>
+                                    <option>Truyện Huyền Huyễn</option>
+                                </select>
+                               
+                               <label for="exampleInputEmail1">Mã DDC</label>
+                                <select class="form-control m-bot15"type="text"value="{{$edit_value->ma_ddc}}"name="stories_ddccode" class="form-control" id="exampleInputEmail1" placeholder="Enter email">    
+                                    <option>000 Những vấn đề chung</option>
+                                    <option>100 Triết học và Tâm lý học</option>
+                                    <option>200 Tôn giáo</option>
+                                    <option>300 Khoa học Xã hội</option>
+                                    <option>400 Ngôn ngữ</option>
+                                    <option>500 Khoa học Tự nhiên</option>
+                                    <option>600 Khoa học Ứng dụng </option>
+                                    <option>700 Nghệ thuật</option>
+                                    <option>800 Văn học và Tu từ học </option>
+                                    <option>900 Địa lý và Lịch sử</option>
+                                </select>
+                                
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nhà Xuất Bản</label>
                                     <input type="text" value="{{$edit_value->nxb}}"name="stories_publisher"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
@@ -48,7 +62,7 @@
                                     </textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Số Lượng</label>
+                                    <label for="exampleInputEmail1">Số Tập</label>
                                     <input type="number"value="{{$edit_value->so_luong}}" name="stories_amount" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">

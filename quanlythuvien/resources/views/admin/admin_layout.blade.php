@@ -286,6 +286,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Borrower List</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/add-list')}}">Add Borrower</a></li>
+                        <li><a href="{{URL::to('/all-list')}}">Show Borrower</a></li>
+                        
+                    </ul>
+                </li>
                 <li>
                     <a href="{{URL::to('/logout')}}">
                         <i class="fa fa-user"></i>

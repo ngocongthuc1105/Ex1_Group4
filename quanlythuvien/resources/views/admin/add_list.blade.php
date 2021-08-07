@@ -22,11 +22,11 @@
                                     <input type="text"name="borrower_id" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">ID Người Dùng</label>
+                                    <label for="exampleInputEmail1">Tên Người Dùng</label>
                                     <input type="text" name="user_id"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Mã Sách</label>
+                                    <label for="exampleInputEmail1">Tên Sách</label>
                                     <input type="text" name="book_id"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">

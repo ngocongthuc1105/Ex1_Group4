@@ -43,8 +43,8 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Mã Sách</th>
-            <th>Mã Người Mượn</th>
+            <th>Tên Sách</th>
+            <th>Tên Người Mượn</th>
             <th>Thời Gian Mượn</th>
             <th style="width:30px;">Chỉnh Sửa</th>
           </tr>
