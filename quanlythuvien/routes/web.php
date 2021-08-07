@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //frontend
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@home');
 Route::get('/Home', 'HomeController@home');
 Route::get('/catalog', 'HomeController@all_catalog');
 Route::get('/our-team', 'HomeController@ourteam');
@@ -42,3 +42,12 @@ Route::get('/delete-user/{user_id}','UserManagement@delete_user');
 
 Route::post('/save-user','UserManagement@save_user');
 Route::post('/update-user/{user_id}','UserManagement@update_user');
+
+//List Borrower
+Route::get('/add-list','ListBorrower@add_list');
+Route::get('/all-list','ListBorrower@all_list');
+Route::get('/edit-list/{ma_muon}','ListBorrower@edit_list');
+Route::get('/delete-list/{ma_muon}','ListBorrower@delete_list');
+
+Route::post('/save-list','ListBorrower@save_list');
+Route::post('/update-list/{ma_muon}','ListBorrower@update_list');
