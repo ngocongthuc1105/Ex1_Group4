@@ -23,11 +23,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên Người Dùng</label>
-                                    <input type="text" name="user_id"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" name="user_name"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên Sách</label>
-                                    <input type="text" name="book_id"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" name="book_name"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số Tập</label>

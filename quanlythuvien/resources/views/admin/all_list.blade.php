@@ -53,8 +53,8 @@
           @foreach($all_list as $key => $cate_pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$cate_pro -> ma_sach}}</td>
-            <td><span class="text-ellipsis">{{$cate_pro -> user_id}}</span></td>
+            <td>{{$cate_pro -> ten_sach}}</td>
+            <td><span class="text-ellipsis">{{$cate_pro -> user_name}}</span></td>
             <td><span class="text-ellipsis">{{$cate_pro -> ngay_muon}}</span></td>
             <td>
               <a href="{{URL::to('/edit-list/'.$cate_pro -> ma_muon)}}" class="active stylling-edit" ui-toggle-class="">

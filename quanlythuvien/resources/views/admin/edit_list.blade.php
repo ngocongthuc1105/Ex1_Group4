@@ -16,11 +16,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên Người Dùng</label>
-                                    <input type="text" value="{{$edit_value->user_id}}"name="user_id"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" value="{{$edit_value->user_name}}"name="user_name"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên Sách</label>
-                                    <input type="text"value="{{$edit_value->ma_sach}}" name="book_id"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text"value="{{$edit_value->ten_sach}}" name="book_name"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số Tập</label>

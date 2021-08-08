@@ -23,8 +23,8 @@ class ListBorrower extends Controller
 
         $data = array();
         $data['ma_muon'] = $request->borrower_id;
-        $data['user_id'] = $request->user_id;
-        $data['ma_sach'] = $request->book_id;
+        $data['user_name'] = $request->user_name;
+        $data['ten_sach'] = $request->book_name;
         $data['so_luong'] = $request->so_luong;
         $data['ngay_muon'] = $request->ngay_muon;
         $data['ngay_hen_tra'] = $request->ngay_hen_tra;
@@ -44,8 +44,8 @@ class ListBorrower extends Controller
 
         $data = array();
         $data['ma_muon'] = $request->borrower_id;
-        $data['user_id'] = $request->user_id;
-        $data['ma_sach'] = $request->book_id;
+        $data['user_name'] = $request->user_name;
+        $data['ten_sach'] = $request->book_name;
         $data['so_luong'] = $request->so_luong;
         $data['ngay_muon'] = $request->ngay_muon;
         $data['ngay_hen_tra'] = $request->ngay_hen_tra;
