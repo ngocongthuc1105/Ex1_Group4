@@ -36,6 +36,9 @@
                                     <option>Truyện Trinh Thám</option>
                                     <option>Truyện Võ Hiệp</option>
                                     <option>Truyện Huyền Huyễn</option>
+                                    <option>Truyện Ngôn Tình</option>
+                                    <option>Truyện Cổ Tích</option>
+                                    <option>Truyện Cười</option>
                                 </select>
                                
                                <label for="exampleInputEmail1">Mã DDC</label>
