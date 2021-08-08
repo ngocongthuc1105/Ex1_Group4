@@ -3,7 +3,7 @@
 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Stories
+                            Thêm người dùng
                         </header>
                         <?php
                              $message = Session::get('message');
@@ -16,38 +16,38 @@
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/save-user')}}" method="post">
                                     {{csrf_field()}}
-                                    <div class="form-group">
-                                    <label for="exampleInputEmail1">User ID</label>
+                                    <!-- <div class="form-group">
+                                    <label for="exampleInputEmail1">Mã người dùng</label>
                                     <input type="text"name="user_id" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                </div>
-            
+                                </div> -->
+
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">User Name</label>
-                                    <input type="text"  name="user_name"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <label for="exampleInputEmail1">Tên người dùng</label>
+                                    <input type="text"  name="user_name"class="form-control" id="exampleInputEmail1" placeholder="Nhập tên người dùng">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
-                                    <input type="text" name="user_email"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" name="user_email"class="form-control" id="exampleInputEmail1" placeholder="Nhập E-mail">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Password</label>
-                                    <input type="text" name="user_password"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <label for="exampleInputEmail1">Mật khẩu</label>
+                                    <input type="text" name="user_password"class="form-control" id="exampleInputEmail1" placeholder="Nhập mật khẩu">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Phone Number</label>
-                                    <input type="text" name="user_phone"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <label for="exampleInputEmail1">Số điện thoại</label>
+                                    <input type="text" name="user_phone"class="form-control" id="exampleInputEmail1" placeholder="Nhập số điện thoại">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Address</label>
-                                    <input type="text" name="user_address"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <label for="exampleInputEmail1">Địa chỉ</label>
+                                    <input type="text" name="user_address"class="form-control" id="exampleInputEmail1" placeholder="Nhập địa chỉ">
                                 </div>
-                               
+
                                 <!--<div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" id="exampleInputFile">
                                     <p class="help-block"></p>
                                 </div>-->
-                                <button type="submit" class="btn btn-info">Submit</button>
+                                <button type="submit" class="btn btn-info">Ghi dữ liệu</button>
                             </form>
                             </div>
 

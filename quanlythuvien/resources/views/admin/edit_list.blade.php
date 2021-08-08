@@ -3,20 +3,20 @@
 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Edit Stories
+                            Chỉnh sửa sách
                         </header>
                         <div class="panel-body">
                             @foreach($edit_list as $key => $edit_value)
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/update-list/'.$edit_value->ma_muon)}}" method="post">
                                     {{csrf_field()}}
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="exampleInputEmail1">Mã Mượn</label>
                                     <input type="text"value="{{$edit_value->ma_muon}}"name="borrower_id" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên Người Dùng</label>
-                                    <input type="text" value="{{$edit_value->user_name}}"name="user_name"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" value="{{$edit_value->user_name}}"name="user_name"class="form-control" id="exampleInputEmail1" placeholder="Nhập tên người dùng">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên Sách</label>

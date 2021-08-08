@@ -3,7 +3,7 @@
 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Edit Stories
+                            Chỉnh sửa người dùng
                         </header>
                         <div class="panel-body">
                             @foreach($edit_user as $key => $edit_value)
@@ -34,8 +34,8 @@
                                     <label for="exampleInputEmail1">Address</label>
                                     <input type="text"value="{{$edit_value->user_address}}" name="user_address"class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
-                                
-                            
+
+
                                 <!--<div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" id="exampleInputFile">

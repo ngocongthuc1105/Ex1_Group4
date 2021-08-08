@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
-<title>DASH_BOARD</title>
+<title>Tổng quan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
@@ -16,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="{{asset('public/backend/css/font.css')}}" type="text/css"/>
-<link href="{{asset('public/backend/css/font-awesome.css')}}" rel="stylesheet"> 
+<link href="{{asset('public/backend/css/font-awesome.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('public/backend/css/morris.css')}}" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="{{asset('public/backend/css/monthly.css')}}">
@@ -51,14 +51,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </a>
             <ul class="dropdown-menu extended tasks-bar">
                 <li>
-                    <p class="">You have 8 pending tasks</p>
+                    <p class="">Có 8 công việc cần làm</p>
                 </li>
                 <li>
                     <a href="#">
                         <div class="task-info clearfix">
                             <div class="desc pull-left">
-                                <h5>Target Sell</h5>
-                                <p>25% , Deadline  12 June’13</p>
+                                <h5>Mục tiêu cần bán</h5>
+                                <p>25% , Hạn cuối  13/12</p>
                             </div>
                                     <span class="notification-pie-chart pull-right" data-percent="45">
                             <span class="percent"></span>
@@ -70,8 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <div class="task-info clearfix">
                             <div class="desc pull-left">
-                                <h5>Product Delivery</h5>
-                                <p>45% , Deadline  12 June’13</p>
+                                <h5>Hàng hóa cần vận chuyển</h5>
+                                <p>45% , Hạn cuối  13/12</p>
                             </div>
                                     <span class="notification-pie-chart pull-right" data-percent="78">
                             <span class="percent"></span>
@@ -83,8 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <div class="task-info clearfix">
                             <div class="desc pull-left">
-                                <h5>Payment collection</h5>
-                                <p>87% , Deadline  12 June’13</p>
+                                <h5>Danh sách bộ sưu tập </h5>
+                                <p>87% , Hạn cuối  13/12</p>
                             </div>
                                     <span class="notification-pie-chart pull-right" data-percent="60">
                             <span class="percent"></span>
@@ -96,8 +96,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <div class="task-info clearfix">
                             <div class="desc pull-left">
-                                <h5>Target Sell</h5>
-                                <p>33% , Deadline  12 June’13</p>
+                                <h5>Mục tiêu cần bán</h5>
+                                <p>33% ,  Hạn cuối  13/12</p>
                             </div>
                                     <span class="notification-pie-chart pull-right" data-percent="90">
                             <span class="percent"></span>
@@ -107,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 
                 <li class="external">
-                    <a href="#">See All Tasks</a>
+                    <a href="#">Xem tất cả công việc</a>
                 </li>
             </ul>
         </li>
@@ -120,17 +120,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </a>
             <ul class="dropdown-menu extended inbox">
                 <li>
-                    <p class="red">You have 4 Mails</p>
+                    <p class="red">Bạn có 4 thư mới</p>
                 </li>
                 <li>
                     <a href="#">
                         <span class="photo"><img alt="avatar" src="images/3.png"></span>
                                 <span class="subject">
-                                <span class="from">Jonathan Smith</span>
-                                <span class="time">Just now</span>
+                                <span class="from">Nguyễn Văn A</span>
+                                <span class="time">Vừa xong</span>
                                 </span>
                                 <span class="message">
-                                    Hello, this is an example msg.
+                                    Xin chào!
                                 </span>
                     </a>
                 </li>
@@ -138,11 +138,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <span class="photo"><img alt="avatar" src="images/1.png"></span>
                                 <span class="subject">
-                                <span class="from">Jane Doe</span>
-                                <span class="time">2 min ago</span>
+                                <span class="from">Nguyễn Văn B</span>
+                                <span class="time">2 phút trước</span>
                                 </span>
                                 <span class="message">
-                                    Nice admin template
+                                    Xin chào!
                                 </span>
                     </a>
                 </li>
@@ -150,11 +150,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <span class="photo"><img alt="avatar" src="images/3.png"></span>
                                 <span class="subject">
-                                <span class="from">Tasi sam</span>
-                                <span class="time">2 days ago</span>
+                                <span class="from">Nguyễn Văn C</span>
+                                <span class="time">2 ngày trước</span>
                                 </span>
                                 <span class="message">
-                                    This is an example msg.
+                                    Xin chào!
                                 </span>
                     </a>
                 </li>
@@ -162,16 +162,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <span class="photo"><img alt="avatar" src="images/2.png"></span>
                                 <span class="subject">
-                                <span class="from">Mr. Perfect</span>
-                                <span class="time">2 hour ago</span>
+                                <span class="from">Nguyễn Văn D</span>
+                                <span class="time">2 giờ trước</span>
                                 </span>
                                 <span class="message">
-                                    Hi there, its a test
+                                    Xin chào!
                                 </span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">See all messages</a>
+                    <a href="#">Xem tất cả tin nhắn</a>
                 </li>
             </ul>
         </li>
@@ -185,13 +185,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </a>
             <ul class="dropdown-menu extended notification">
                 <li>
-                    <p>Notifications</p>
+                    <p>Thông báo</p>
                 </li>
                 <li>
                     <div class="alert alert-info clearfix">
                         <span class="alert-icon"><i class="fa fa-bolt"></i></span>
                         <div class="noti-info">
-                            <a href="#"> Server #1 overloaded.</a>
+                            <a href="#"> Máy chủ #1 quá tải.</a>
                         </div>
                     </div>
                 </li>
@@ -199,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="alert alert-danger clearfix">
                         <span class="alert-icon"><i class="fa fa-bolt"></i></span>
                         <div class="noti-info">
-                            <a href="#"> Server #2 overloaded.</a>
+                            <a href="#"> Máy chủ #2 quá tải.</a>
                         </div>
                     </div>
                 </li>
@@ -207,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="alert alert-success clearfix">
                         <span class="alert-icon"><i class="fa fa-bolt"></i></span>
                         <div class="noti-info">
-                            <a href="#"> Server #3 overloaded.</a>
+                            <a href="#"> Máy chủ #3 quá tải.</a>
                         </div>
                     </div>
                 </li>
@@ -240,13 +240,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><a href="#"><i class=" fa fa-suitcase"></i>Hồ sơ admin</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
+                <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
-       
+
     </ul>
     <!--search & user info end-->
 </div>
@@ -261,49 +261,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                     <a class="active" href="index.html">
                         <i class="fa fa-dashboard"></i>
-                        <span>Home</span>
+                        <span>Trang chủ</span>
                     </a>
                 </li>
-                
+
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Category Stories</span>
+                        <span>Quản lý sách</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/add-stories')}}">Add Stories</a></li>
-                        <li><a href="{{URL::to('/all-stories')}}">Show Stories</a></li>
+                        <li><a href="{{URL::to('/add-stories')}}">Thêm sách</a></li>
+                        <li><a href="{{URL::to('/all-stories')}}">Danh sách sách</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
-                        <span>User Management</span>
+                        <span>Quản lý người dùng</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/add-user')}}">Add User</a></li>
-                        <li><a href="{{URL::to('/all-user')}}">Show User</a></li>
-                        
+                        <li><a href="{{URL::to('/add-user')}}">Thêm người dùng</a></li>
+                        <li><a href="{{URL::to('/all-user')}}">Danh sách người dùng</a></li>
+
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
-                        <span>Borrower List</span>
+                        <span>Quản lý danh sách mượn</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/add-list')}}">Add Borrower</a></li>
-                        <li><a href="{{URL::to('/all-list')}}">Show Borrower</a></li>
-                        
+                        <li><a href="{{URL::to('/add-list')}}">Thêm danh sách mượn</a></li>
+                        <li><a href="{{URL::to('/all-list')}}">Danh sách mượn</a></li>
+
                     </ul>
                 </li>
                 <li>
                     <a href="{{URL::to('/logout')}}">
                         <i class="fa fa-user"></i>
-                        <span>Log Out</span>
+                        <span>Đăng xuất</span>
                     </a>
                 </li>
-            </ul>           
+            </ul>
         </div>
         <!-- sidebar menu end-->
     </div>
@@ -332,7 +332,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
-<!-- morris JavaScript -->  
+<!-- morris JavaScript -->
 <script>
     $(document).ready(function() {
         //BOX BUTTON SHOW AND CLOSE
@@ -345,12 +345,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           jQuery(this).closest('.small-graph-box').fadeOut(200);
           return false;
        });
-       
+
         //CHARTS
         function gd(year, day, month) {
             return new Date(year, month - 1, day).getTime();
         }
-        
+
         graphArea2 = Morris.Area({
             element: 'hero-area',
             padding: 10,
@@ -373,7 +373,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 {period: '2016 Q3', iphone: 4830, ipad: 3805, itouch: 1598},
                 {period: '2016 Q4', iphone: 15083, ipad: 8977, itouch: 5185},
                 {period: '2017 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
-            
+
             ],
             lineColors:['#eb6f6f','#926383','#eb6f6f'],
             xkey: 'period',
@@ -384,8 +384,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             hideHover: 'auto',
             resize: true
         });
-        
-       
+
+
     });
     </script>
 <!-- calendar -->
@@ -395,7 +395,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             $('#mycalendar').monthly({
                 mode: 'event',
-                
+
             });
 
             $('#mycalendar2').monthly({
@@ -422,4 +422,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //calendar -->
 </body>
 </html>
-
