@@ -124,8 +124,8 @@ INSERT INTO `muon` (`ma_muon`, `user_name`, `ten_sach`, `so_luong`, `ngay_muon`,
 (3, 'Bùi Đức Khải', 'Cô gái đến từ hôm qua', 1, '2021-08-01', '2021-08-19', '2021-08-18', NULL, NULL),
 (4, 'Lê An Bình', 'Con chó nhỏ mang giỏ hoa hồng', 1, '2021-08-24', '2021-08-28', '2021-08-28', NULL, NULL),
 (5, 'Trần Long Hoàng', 'Doraemon', 2, '2021-07-20', '2021-07-29', '2021-07-28', NULL, NULL),
-(6, 'Trần Long Hoàng', 'Doraemon Truyện Dài', 4, '2021-08-01', '2021-08-17', '2021-08-17', NULL, NULL);
-(7, 'Lê An Bình', 'Bồ câu không đưa thư', 1, '2021-08-24', '2021-08-28', '2021-08-28', NULL, NULL),
+(6, 'Trần Long Hoàng', 'Doraemon Truyện Dài', 4, '2021-08-01', '2021-08-17', '2021-08-17', NULL, NULL),
+(7, 'Lê An Bình', 'Bồ câu không đưa thư', 1, '2021-08-24', '2021-08-28', '2021-08-28', NULL, NULL);
 -- --------------------------------------------------------
 
 --
