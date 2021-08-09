@@ -18,18 +18,18 @@ class ListBorrower extends Controller
         $manager_borrower = view('admin.all_list')->with('all_list',$all_borrower);
         return view('admin.admin_layout')->with('admin.all_list',$manager_borrower);
     }
-     
+
     public function save_list(Request $request){
 
         $data = array();
-        $data['ma_muon'] = $request->borrower_id;
+        // $data['ma_muon'] = $request->borrower_id;
         $data['user_name'] = $request->user_name;
         $data['ten_sach'] = $request->book_name;
         $data['so_luong'] = $request->so_luong;
         $data['ngay_muon'] = $request->ngay_muon;
         $data['ngay_hen_tra'] = $request->ngay_hen_tra;
         $data['ngay_tra'] = $request->ngay_tra;
-        
+
 
         DB::table('muon')->insert($data);
         Session::put('message','Thêm Thành Công');
@@ -43,7 +43,7 @@ class ListBorrower extends Controller
     public function update_list(Request $request,$ma_muon){
 
         $data = array();
-        $data['ma_muon'] = $request->borrower_id;
+        // $data['ma_muon'] = $request->borrower_id;
         $data['user_name'] = $request->user_name;
         $data['ten_sach'] = $request->book_name;
         $data['so_luong'] = $request->so_luong;

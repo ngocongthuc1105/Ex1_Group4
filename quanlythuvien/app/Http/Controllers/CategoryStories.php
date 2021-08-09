@@ -18,10 +18,22 @@ class CategoryStories extends Controller
         $manager_stories = view('admin.all_stories')->with('all_stories',$all_stories);
         return view('admin.admin_layout')->with('admin.all_stories',$manager_stories);
     }
+
+    public static function gia_tien_theo_the_loai($the_loai)
+    {
+      $all_stories_with_same_type = DB::table('sach')->where('the_loai', $the_loai)->get();
+      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";
+      $tong_gia_tien = 0;
+      foreach ($all_stories_with_same_type as $story) {
+        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;
+      }
+      return $tong_gia_tien;
+    }
+
     public function save_stories(Request $request){
 
         $data = array();
-        $data['ma_sach'] = $request->stories_id;
+        // $data['ma_sach'] = $request->stories_id;
         $data['ten_sach'] = $request->stories_name;
         $data['ten_tac_gia'] = $request->stories_author;
         $data['ngon_ngu'] = $request->stories_language;
