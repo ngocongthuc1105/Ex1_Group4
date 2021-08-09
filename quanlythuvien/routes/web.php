@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +24,13 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/dashboard','AdminController@show_dashboard');
 Route::post('/admin-dashboard','AdminController@dashboard');
 Route::get('/logout','AdminController@logout');
+
+//backend
+Route::get('/loginpage', 'UserController@index')->name('loginpage');
+Route::post('/user-login', 'UserController@login')->name('login');
+Route::get('/registerpage', 'UserController@registerpage')->name('registerpage');
+Route::post('/user-register','UserController@register')->name('register');
+Route::post('/user-logout','UserController@logout')->name('logout');
 
 //category stories
 Route::get('/add-stories','CategoryStories@add_stories');
