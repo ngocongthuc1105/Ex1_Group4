@@ -3,7 +3,7 @@
 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add Borrower List
+                            Thêm danh sách mượn
                         </header>
                         <?php
                              $message = Session::get('message');
@@ -12,7 +12,7 @@
                                 Session::put('message',null);
                              }
                         ?>
-          
+
                         <div class="panel-body">
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/save-list')}}" method="post">
@@ -45,7 +45,7 @@
                                     <label for="exampleInputEmail1">Ngày Trả</label>
                                     <input type="date"name="ngay_tra" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                 </div>
-                                
+
                                 <!--<div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" id="exampleInputFile">

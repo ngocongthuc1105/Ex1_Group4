@@ -64,6 +64,43 @@
 <body>
   <div class="container">
     <header class="tm-site-header">
+      <div class="" style="float: right">
+          <ul>
+            @csrf
+            @if(Session::get('user_name') == null)
+                                  @if (Route::has('login'))
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="{{ route('loginpage') }}">{{ __('Login') }}</a>
+                                      </li>
+                                  @endif
+
+                                  @if (Route::has('register'))
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="{{ route('registerpage') }}">{{ __('Register') }}</a>
+                                      </li>
+                                  @endif
+                              @else
+                                  <li class="nav-item dropdown">
+                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                          {{Session::get('user_name')}}
+                                      </a>
+
+                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                          <a class="dropdown-item" href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                                           document.getElementById('logout-form').submit();">
+                                              {{ __('Logout') }}
+                                          </a>
+
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                              @csrf
+                                          </form>
+                                      </div>
+                                  </li>
+                              @endif
+
+          </ul>
+      </div>
     <h1 class="tm-site-name">Thư viện tại gia</h1>
     <p class="tm-site-description">Thư viện tại gia của bạn, hỗ trợ quản lý sách 1 cách tự động</p>
 
