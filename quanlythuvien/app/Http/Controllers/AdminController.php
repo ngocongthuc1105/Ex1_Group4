@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 
@@ -35,5 +35,18 @@ class AdminController extends Controller
         Session::put('admin_name',null);
         Session::put('admin_id',null);
         return Redirect::to('/admin');
+    }
+
+    public function getSearch(Request $req){
+        $book = DB::table('sach')->where('ten_sach','like','%'.$req->key.'%')
+                                ->orWhere('ten_tac_gia','like','%'.$req->key.'%')
+                                ->orWhere('dich_gia','like','%'.$req->key.'%')
+                                ->get();
+        return view('admin.all_stories')->with('all_stories', $book);
+    }
+    public function getBorrower(Request $req){
+        $borrower = DB::table('muon')->where('user_name','like','%'.$req->key.'%')
+                                ->get();
+        return view('admin.all_list')->with('all_list', $borrower);
     }
 }

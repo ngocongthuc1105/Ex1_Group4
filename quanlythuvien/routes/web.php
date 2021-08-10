@@ -1,5 +1,6 @@
   <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,3 +59,9 @@ Route::get('/delete-list/{ma_muon}','ListBorrower@delete_list');
 
 Route::post('/save-list','ListBorrower@save_list');
 Route::post('/update-list/{ma_muon}','ListBorrower@update_list');
+
+//Finding books
+Route::get("/search",'HomeController@getSearch');
+Route::get("/admin/search", 'AdminController@getSearch');
+Route::get("/admin/find-borrower", 'AdminController@getBorrower');
+

@@ -27,10 +27,12 @@
       </div>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
-          <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Đi!</button>
-          </span>
+        <div class="input-group">
+                        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/search">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon" name="key"/>
+                        </form>
+                    </div>
         </div>
       </div>
     </div>

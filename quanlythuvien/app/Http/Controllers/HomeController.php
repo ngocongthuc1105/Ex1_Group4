@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -26,5 +26,12 @@ class HomeController extends Controller
     }
     public function contactus(){
         return view('user.contact');
+    }
+    public function getSearch(Request $req){
+        $book = DB::table('sach')->where('ten_sach','like','%'.$req->key.'%')
+                                ->orWhere('ten_tac_gia','like','%'.$req->key.'%')
+                                ->orWhere('dich_gia','like','%'.$req->key.'%')
+                                ->get();
+        return view('user.catalog')->with('all_stories', $book);
     }
 }

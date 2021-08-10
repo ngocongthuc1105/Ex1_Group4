@@ -27,10 +27,12 @@
       </div>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
-          <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Đi!</button>
-          </span>
+        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/find-borrower">
+                            <div class="form-group">
+                              <label for="name">Username</label>
+                              <input type="input" class="form-control rounded" id="name" placeholder="Search" name="key"/>
+                            </div>
+                        </form>
         </div>
       </div>
     </div>
