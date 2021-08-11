@@ -115,7 +115,7 @@
       <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
         <ul class="navbar-nav nav-fill tm-main-nav-ul">
           <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Trang chủ</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{URL::to('/catalog')}}">Danh sách sách</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{URL::to('show_category')}}">Danh sách sách</a></li>
           <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Giới thiệu về nhóm</a></li>
           <!-- <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li> -->
         </ul>

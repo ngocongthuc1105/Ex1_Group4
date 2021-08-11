@@ -14,13 +14,14 @@ class HomeController extends Controller
         return view('user_layout');
     }
     public function home(){
+
         return view('user.home');
     }
      public function all_catalog(){
-        $all_catalog = DB::table('sach')->get();
-        $manager_stories = view('user.catalog')->with('all_stories',$all_catalog);
-        return view('user_layout')->with('user.catalog',$manager_stories);
-    }
+        $cate_product = DB::table('category_book')->orderBy('category_id','desc') ->get();
+        $manager_stories = view('show_category')->with('cate_product',$cate_product);
+        return view('user_layout')->with('show_category',$manager_stories);
+    }   
     public function ourteam(){
         return view('user.team');
     }

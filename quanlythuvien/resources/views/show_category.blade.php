@@ -26,7 +26,7 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>
-              <a href="[{URL::to('./danhmuc/$cate_pro ->category_id)}]" >{{$cate_pro -> category_name}}</a>
+              <a href="{{URL::to('/danh-muc-sach/'.$cate_pro->category_id)}}" >{{$cate_pro -> category_name}}</a>
             </td>
             
               <a href="" class="active" ui-toggle-class=""><i class="fa fa-shopping-cart text-success text-active"></i><i class="fa fa fa-book text-active text"></i></a>

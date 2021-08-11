@@ -76,7 +76,7 @@
 
         <div class="col-sm-5 text-center">
           <small class="text-muted inline m-t-sm m-b-sm">cho thấy 20-30 của 50 </small>
-          <p>{{ App\Http\Controllers\AdminController::gia_tien_theo_the_loai('Truyện Tranh')}}</p>
+          <p>Tổng giá tiền{{ App\Http\Controllers\AdminController::gia_tien_theo_the_loai('Truyện Tranh')}}</p>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">

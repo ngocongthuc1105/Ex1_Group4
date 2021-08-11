@@ -28,7 +28,7 @@
       <div class="col-sm-3">
         <div class="input-group">
         <div class="input-group">
-                        <form role ="search" method ="get" id = "searchform" action="/quanlythuvien/admin/search">
+                        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/search">
                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                                 aria-describedby="search-addon" name="key"/>
                         </form>
