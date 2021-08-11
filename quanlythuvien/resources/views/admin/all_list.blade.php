@@ -27,7 +27,7 @@
       </div>
       <div class="col-sm-3">
         <div class="input-group">
-        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/find-borrower">
+        <form role ="search" method ="get" id = "searchform" action="/quanlythuvien/admin/find-borrower">
                             <div class="form-group">
                               <label for="name">Username</label>
                               <input type="input" class="form-control rounded" id="name" placeholder="Search" name="key"/>
