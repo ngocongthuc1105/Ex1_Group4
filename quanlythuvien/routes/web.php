@@ -38,6 +38,8 @@ Route::get('/add-stories','CategoryStories@add_stories');
 Route::get('/all-stories','CategoryStories@all_stories');
 Route::get('/edit-stories/{ma_sach}','CategoryStories@edit_stories');
 Route::get('/delete-stories/{ma_sach}','CategoryStories@delete_stories');
+// review
+Route::get('/show_review/{ma_sach}','CategoryStories@show_review');
 
 Route::post('/save-stories','CategoryStories@save_stories');
 Route::post('/update-stories/{ma_sach}','CategoryStories@update_stories');

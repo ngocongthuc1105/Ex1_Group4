@@ -65,6 +65,9 @@
               <a onclick="return confirm('Bạn có muốn xoá sách này không?')" href="{{URL::to('/delete-stories/'.$cate_pro -> ma_sach)}}" class="active stylling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
+              <a href="{{URL::to('/show_review/'.$cate_pro -> ma_sach)}}" class="active stylling-edit" ui-toggle-class="">
+                <i class="fa fa-eye text-success text-active"></i>
+              </a>
             </td>
           </tr>
           @endforeach
