@@ -28,7 +28,7 @@
       <div class="col-sm-3">
         <div class="input-group">
         <div class="input-group">
-                        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/search">
+                        <form role ="search" method ="get" id = "searchform" action="/quanlythuvien/admin/search">
                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                                 aria-describedby="search-addon" name="key"/>
                         </form>
@@ -64,6 +64,9 @@
               </a>
               <a onclick="return confirm('Bạn có muốn xoá sách này không?')" href="{{URL::to('/delete-stories/'.$cate_pro -> ma_sach)}}" class="active stylling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
+              </a>
+              <a href="{{URL::to('/show_review/'.$cate_pro -> ma_sach)}}" class="active stylling-edit" ui-toggle-class="">
+                <i class="fa fa-eye text-success text-active"></i>
               </a>
             </td>
           </tr>

@@ -13,6 +13,12 @@ class CategoryStories extends Controller
     public function add_stories(){
         return view('admin.add_stories');
     }
+    //review
+    public function show_review($ma_sach){
+        $show_review = DB::table('sach')->where('ma_sach',$ma_sach)->get();
+        $manager_stories = view('admin.show_review')->with('show_review',$show_review);
+        return view('admin.admin_layout')->with('admin.show_review',$manager_stories);
+    }
     public function all_stories(){
         $all_stories = DB::table('sach')->get();
         $manager_stories = view('admin.all_stories')->with('all_stories',$all_stories);

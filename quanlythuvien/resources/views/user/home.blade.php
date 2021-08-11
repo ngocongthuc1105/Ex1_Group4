@@ -8,7 +8,7 @@
                     <p>Shelf HTML template is provided by Tooplate. Please tell your friends about it. Thank you. Images are from Unsplash website. In tincidunt metus sed justo tincidunt sollicitudin. Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat.</p>
 
                     <div class="input-group">
-                        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/search">
+                        <form role ="search" method ="get" id = "searchform" action="/quanlythuvien/search">
                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                                 aria-describedby="search-addon" name="key"/>
                         </form>
