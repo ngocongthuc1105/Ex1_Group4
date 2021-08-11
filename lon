@@ -1,0 +1,1142 @@
+[1mdiff --git a/quanlythuvien/app/Http/Controllers/AdminController.php b/quanlythuvien/app/Http/Controllers/AdminController.php[m
+[1mindex d05b0f7..a8d58d2 100644[m
+[1m--- a/quanlythuvien/app/Http/Controllers/AdminController.php[m
+[1m+++ b/quanlythuvien/app/Http/Controllers/AdminController.php[m
+[36m@@ -37,6 +37,39 @@[m [mclass AdminController extends Controller[m
+         return Redirect::to('/admin');[m
+     }[m
+ [m
+[32m+[m[32m    public static function gia_tien_theo_the_loai($the_loai)[m
+[32m+[m[32m    {[m
+[32m+[m[32m      $all_stories_with_same_type = DB::table('sach')->where('the_loai', $the_loai)->get();[m
+[32m+[m[32m      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";[m
+[32m+[m[32m      $tong_gia_tien = 0;[m
+[32m+[m[32m      foreach ($all_stories_with_same_type as $story) {[m
+[32m+[m[32m        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;[m
+[32m+[m[32m      }[m
+[32m+[m[32m      return $tong_gia_tien;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public static function gia_tien_theo_tac_gia($ten_tac_gia)[m
+[32m+[m[32m    {[m
+[32m+[m[32m      $all_stories_with_same_type = DB::table('sach')->where('ten_tac_gia', $ten_tac_gia)->get();[m
+[32m+[m[32m      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";[m
+[32m+[m[32m      $tong_gia_tien = 0;[m
+[32m+[m[32m      foreach ($all_stories_with_same_type as $story) {[m
+[32m+[m[32m        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;[m
+[32m+[m[32m      }[m
+[32m+[m[32m      return $tong_gia_tien;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public static function gia_tien_theo_nxb($nxb)[m
+[32m+[m[32m    {[m
+[32m+[m[32m      $all_stories_with_same_type = DB::table('sach')->where('nxb', $nxb)->get();[m
+[32m+[m[32m      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";[m
+[32m+[m[32m      $tong_gia_tien = 0;[m
+[32m+[m[32m      foreach ($all_stories_with_same_type as $story) {[m
+[32m+[m[32m        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;[m
+[32m+[m[32m      }[m
+[32m+[m[32m      return $tong_gia_tien;[m
+[32m+[m[32m    }[m
+[32m+[m
+     public function getSearch(Request $req){[m
+         $book = DB::table('sach')->where('ten_sach','like','%'.$req->key.'%')[m
+                                 ->orWhere('ten_tac_gia','like','%'.$req->key.'%')[m
+[1mdiff --git a/quanlythuvien/app/Http/Controllers/CategoryBook.php b/quanlythuvien/app/Http/Controllers/CategoryBook.php[m
+[1mdeleted file mode 100644[m
+[1mindex 03aac12..0000000[m
+[1m--- a/quanlythuvien/app/Http/Controllers/CategoryBook.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,58 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-namespace App\Http\Controllers;[m
+[31m-[m
+[31m-use Illuminate\Http\Request;[m
+[31m-use DB;[m
+[31m-use Session;[m
+[31m-use App\Http\Requests;[m
+[31m-use Illuminate\Support\Facades\Redirect;[m
+[31m-session_start();[m
+[31m-[m
+[31m-[m
+[31m-class CategoryBook extends Controller[m
+[31m-{[m
+[31m-    public function add_category_book(){[m
+[31m-        return view('admin.add_category_book');[m
+[31m-    }[m
+[31m-    public function all_category_book(){[m
+[31m-[m
+[31m-        $all_category_book = DB::table('category_book')->get();[m
+[31m-        $manager_category_book = view('admin.all_category_book')->with('all_category_book',$all_category_book);[m
+[31m-        return view('admin.admin_layout')->with('admin.all_category_book',$manager_category_book);[m
+[31m-    }[m
+[31m-    public function save_category_book(Request $request){[m
+[31m-        $data = array();[m
+[31m-        $data['category_id']= $request->category_book_id;[m
+[31m-        $data['category_name']= $request->category_book_name;[m
+[31m-        DB::table('category_book')->insert($data);[m
+[31m-        Session::put('message','Thêm danh mục thành công');[m
+[31m-        return Redirect::to('/add-category-book');[m
+[31m-    }[m
+[31m-     public function edit_category_book($category_id){[m
+[31m-        $edit_category_book = DB::table('category_book')->where('category_id',$category_id)->get();[m
+[31m-        $manager_category_book = view('admin.edit_category_book')->with('edit_category_book',$edit_category_book);[m
+[31m-        return view('admin.admin_layout')->with('admin.edit_category_book',$manager_category_book);[m
+[31m-    }[m
+[31m-    public function update_category_book(Request $request,$category_id){[m
+[31m-        $data = array();[m
+[31m-        $data['category_name']= $request->category_book_name;[m
+[31m-        $data['category_id']= $request->category_book_DDC;[m
+[31m-        DB::table('category_book')->where('category_id',$category_id)->update($data);[m
+[31m-        Session::put('message','Cập nhật danh mục thành công');[m
+[31m-        return Redirect::to('/all-category-book');[m
+[31m-    }[m
+[31m-    public function delete_category_book($category_id){[m
+[31m-        DB::table('category_book')->where('category_id',$category_id)->delete();[m
+[31m-        Session::put('message','Xóa danh mục thành công');[m
+[31m-        return Redirect::to('/all-category-book');[m
+[31m-    }[m
+[31m-[m
+[31m-    //end function admin[m
+[31m-[m
+[31m-    public function show_category($category_id){[m
+[31m-        $cate_product = DB::table('category_book')->orderBy('category_name','desc') ->get();[m
+[31m-        $cate_by_id = DB::table('sach')->join('category_book','sach.category_name','=','category_book.category_name')->where('sach.category_name',$category_id)->get();[m
+[31m-        return view('category.show_category_book')-> with('cate_product',$cate_product)-> with('cate_by_id',$cate_by_id) ;[m
+[31m-     }[m
+[31m-}[m
+[1mdiff --git a/quanlythuvien/app/Http/Controllers/CategoryStories.php b/quanlythuvien/app/Http/Controllers/CategoryStories.php[m
+[1mindex dbdcdeb..d2e5cb7 100644[m
+[1m--- a/quanlythuvien/app/Http/Controllers/CategoryStories.php[m
+[1m+++ b/quanlythuvien/app/Http/Controllers/CategoryStories.php[m
+[36m@@ -11,8 +11,7 @@[m [msession_start();[m
+ class CategoryStories extends Controller[m
+ {[m
+     public function add_stories(){[m
+[31m-        $cate_product = DB::table('category_book')->orderBy('category_id','desc') ->get();[m
+[31m-        return view('admin.add_stories')->with('cate_product',$cate_product);[m
+[32m+[m[32m        return view('admin.add_stories');[m
+     }[m
+     //review[m
+     public function show_review($ma_sach){[m
+[36m@@ -26,16 +25,7 @@[m [mclass CategoryStories extends Controller[m
+         return view('admin.admin_layout')->with('admin.all_stories',$manager_stories);[m
+     }[m
+ [m
+[31m-    public static function gia_tien_theo_the_loai($the_loai)[m
+[31m-    {[m
+[31m-      $all_stories_with_same_type = DB::table('sach')->where('the_loai', $the_loai)->get();[m
+[31m-      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";[m
+[31m-      $tong_gia_tien = 0;[m
+[31m-      foreach ($all_stories_with_same_type as $story) {[m
+[31m-        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;[m
+[31m-      }[m
+[31m-      return $tong_gia_tien;[m
+[31m-    }[m
+[32m+[m[41m    [m
+ [m
+     public function save_stories(Request $request){[m
+ [m
+[36m@@ -57,9 +47,8 @@[m [mclass CategoryStories extends Controller[m
+         return Redirect::to('/add-stories');[m
+     }[m
+      public function edit_stories($ma_sach){[m
+[31m-        $cate_product = DB::table('category_book')->orderBy('category_id','desc') ->get();[m
+         $edit_stories = DB::table('sach')->where('ma_sach',$ma_sach)->get();[m
+[31m-        $manager_stories = view('admin.edit_stories')->with('edit_stories',$edit_stories)->with('cate_product',$cate_product);[m
+[32m+[m[32m        $manager_stories = view('admin.edit_stories')->with('edit_stories',$edit_stories);[m
+         return view('admin.admin_layout')->with('admin.edit_stories',$manager_stories);[m
+     }[m
+     public function update_stories(Request $request,$ma_sach){[m
+[1mdiff --git a/quanlythuvien/app/Http/Controllers/HomeController.php b/quanlythuvien/app/Http/Controllers/HomeController.php[m
+[1mindex 2cbc2fb..0d98cc3 100644[m
+[1m--- a/quanlythuvien/app/Http/Controllers/HomeController.php[m
+[1m+++ b/quanlythuvien/app/Http/Controllers/HomeController.php[m
+[36m@@ -14,14 +14,13 @@[m [mclass HomeController extends Controller[m
+         return view('user_layout');[m
+     }[m
+     public function home(){[m
+[31m-[m
+         return view('user.home');[m
+     }[m
+      public function all_catalog(){[m
+[31m-        $cate_product = DB::table('category_book')->orderBy('category_id','desc') ->get();[m
+[31m-        $manager_stories = view('show_category')->with('cate_product',$cate_product);[m
+[31m-        return view('user_layout')->with('show_category',$manager_stories);[m
+[31m-    }   [m
+[32m+[m[32m        $all_catalog = DB::table('sach')->get();[m
+[32m+[m[32m        $manager_stories = view('user.catalog')->with('all_stories',$all_catalog);[m
+[32m+[m[32m        return view('user_layout')->with('user.catalog',$manager_stories);[m
+[32m+[m[32m    }[m
+     public function ourteam(){[m
+         return view('user.team');[m
+     }[m
+[1mdiff --git a/quanlythuvien/database/migrations/2021_08_05_015004_create_muon.php b/quanlythuvien/database/migrations/2021_08_05_015004_create_muon.php[m
+[1mindex 1711058..4268a52 100644[m
+[1m--- a/quanlythuvien/database/migrations/2021_08_05_015004_create_muon.php[m
+[1m+++ b/quanlythuvien/database/migrations/2021_08_05_015004_create_muon.php[m
+[36m@@ -15,7 +15,7 @@[m [mclass CreateMuon extends Migration[m
+     {[m
+         Schema::create('muon', function (Blueprint $table) {[m
+             $table->increments('ma_muon');[m
+[31m-            $table->integer('user_id');[m
+[32m+[m[32m            $table->string('user_name',100);[m
+             $table->string('ma_sach',100);[m
+             $table->integer('so_luong');[m
+             $table->date('ngay_muon');[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/add_category_book.blade.php b/quanlythuvien/resources/views/admin/add_category_book.blade.php[m
+[1mdeleted file mode 100644[m
+[1mindex d46878e..0000000[m
+[1m--- a/quanlythuvien/resources/views/admin/add_category_book.blade.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,38 +0,0 @@[m
+[31m-@extends('admin.admin_layout')[m
+[31m-@section('admin_content')[m
+[31m-<div class="row">[m
+[31m-            <div class="col-lg-12">[m
+[31m-                    <section class="panel">[m
+[31m-                        <header class="panel-heading">[m
+[31m-                            Thêm danh mục sách[m
+[31m-                        </header>[m
+[31m-                        <div class="panel-body">[m
+[31m-                            <?php[m
+[31m-                            $message = Session::get('message');[m
+[31m-                            if($message){[m
+[31m-                                echo $message;[m
+[31m-                                Session::put('message',null);[m
+[31m-                            }[m
+[31m-                            ?>[m
+[31m-                            <div class="position-center">[m
+[31m-                                <form role="form" action="{{URL::to('/save-category-book')}}" method="post">[m
+[31m-                                    {{csrf_field()}}[m
+[31m-                                <div class="form-group">[m
+[31m-                                    <label for="exampleInputEmail1">Mã DDC</label>[m
+[31m-                                    <input type="text" class="form-control" name="category_book_id" id="exampleInputEmail1" placeholder="Enter email">[m
+[31m-                                </div>[m
+[31m-                                <div class="form-group">[m
+[31m-                                    <label for="exampleInputEmail1">Tên danh mục</label>[m
+[31m-                                    <input type="text" class="form-control" name="category_book_name" id="exampleInputEmail1" placeholder="Enter email">[m
+[31m-                                </div>[m
+[31m-[m
+[31m-                                [m
+[31m-                                <button type="submit" name="add_category_book" class="btn btn-info">Thêm danh mục</button>[m
+[31m-                            </form>[m
+[31m-                            </div>[m
+[31m-[m
+[31m-                        </div>[m
+[31m-                    </section>[m
+[31m-[m
+[31m-            </div>[m
+[31m-@endsection[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/add_list.blade.php b/quanlythuvien/resources/views/admin/add_list.blade.php[m
+[1mindex 6339583..b731142 100644[m
+[1m--- a/quanlythuvien/resources/views/admin/add_list.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/admin/add_list.blade.php[m
+[36m@@ -51,7 +51,7 @@[m
+                                     <input type="file" id="exampleInputFile">[m
+                                     <p class="help-block"></p>[m
+                                 </div>-->[m
+[31m-                                <button type="submit" class="btn btn-info">Submit</button>[m
+[32m+[m[32m                                <button type="submit" class="btn btn-info">Ghi dữ liệu</button>[m
+                             </form>[m
+                             </div>[m
+ [m
+[1mdiff --git a/quanlythuvien/resources/views/admin/add_stories.blade.php b/quanlythuvien/resources/views/admin/add_stories.blade.php[m
+[1mindex 490f1cc..abf5822 100644[m
+[1m--- a/quanlythuvien/resources/views/admin/add_stories.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/admin/add_stories.blade.php[m
+[36m@@ -47,12 +47,18 @@[m
+ [m
+                                 </select>[m
+ [m
+[31m-                               <label for="exampleInputEmail1">Danh mục</label>[m
+[32m+[m[32m                               <label for="exampleInputEmail1">Mã DDC</label>[m
+                                 <select class="form-control m-bot15"type="text"name="stories_ddccode" class="form-control" id="exampleInputEmail1" placeholder="Enter email">[m
+[31m-                                    @foreach($cate_product as $key => $cate)[m
+[31m-                                        <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>[m
+[31m-                                    @endforeach[m
+[31m-                                   [m
+[32m+[m[32m                                    <option>000 Những vấn đề chung</option>[m
+[32m+[m[32m                                    <option>100 Triết học và Tâm lý học</option>[m
+[32m+[m[32m                                    <option>200 Tôn giáo</option>[m
+[32m+[m[32m                                    <option>300 Khoa học Xã hội</option>[m
+[32m+[m[32m                                    <option>400 Ngôn ngữ</option>[m
+[32m+[m[32m                                    <option>500 Khoa học Tự nhiên</option>[m
+[32m+[m[32m                                    <option>600 Khoa học Ứng dụng </option>[m
+[32m+[m[32m                                    <option>700 Nghệ thuật</option>[m
+[32m+[m[32m                                    <option>800 Văn học và Tu từ học </option>[m
+[32m+[m[32m                                    <option>900 Địa lý và Lịch sử</option>[m
+                                 </select>[m
+ [m
+ [m
+[1mdiff --git a/quanlythuvien/resources/views/admin/admin_layout.blade.php b/quanlythuvien/resources/views/admin/admin_layout.blade.php[m
+[1mindex a63fe70..cfb75dc 100644[m
+[1m--- a/quanlythuvien/resources/views/admin/admin_layout.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/admin/admin_layout.blade.php[m
+[36m@@ -297,17 +297,6 @@[m [mSmartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony[m
+ [m
+                     </ul>[m
+                 </li>[m
+[31m-                 <li class="sub-menu">[m
+[31m-                    <a href="javascript:;">[m
+[31m-                        <i class="fa fa-glass"></i>[m
+[31m-                        <span>Danh mục sách</span>[m
+[31m-                    </a>[m
+[31m-                    <ul class="sub">[m
+[31m-                        <li><a href="{{URL::to('/add-category-book')}}">Thêm danh mục sách</a></li>[m
+[31m-                        <li><a href="{{URL::to('/all-category-book')}}">Danh sách danh mục</a></li>[m
+[31m-[m
+[31m-                    </ul>[m
+[31m-                </li>[m
+                 <li>[m
+                     <a href="{{URL::to('/logout')}}">[m
+                         <i class="fa fa-user"></i>[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/all_category_book.blade.php b/quanlythuvien/resources/views/admin/all_category_book.blade.php[m
+[1mdeleted file mode 100644[m
+[1mindex dab6ae8..0000000[m
+[1m--- a/quanlythuvien/resources/views/admin/all_category_book.blade.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,68 +0,0 @@[m
+[31m-@extends('admin.admin_layout')[m
+[31m-@section('admin_content')[m
+[31m-<div class="table-agile-info">[m
+[31m-  <div class="panel panel-default">[m
+[31m-    <div class="panel-heading">[m
+[31m-      Danh sách danh mục[m
+[31m-    </div>[m
+[31m-    <div class="row w3-res-tb">[m
+[31m-      <div class="col-sm-5 m-b-xs">[m
+[31m-        <select class="input-sm form-control w-sm inline v-middle">[m
+[31m-          <option value="0">Bulk action</option>[m
+[31m-          <option value="1">Delete selected</option>[m
+[31m-          <option value="2">Bulk edit</option>[m
+[31m-          <option value="3">Export</option>[m
+[31m-        </select>[m
+[31m-        <button class="btn btn-sm btn-default">Apply</button>                [m
+[31m-      </div>[m
+[31m-      <div class="col-sm-4">[m
+[31m-      </div>[m
+[31m-      <div class="col-sm-3">[m
+[31m-        <div class="input-group">[m
+[31m-          <input type="text" class="input-sm form-control" placeholder="Search">[m
+[31m-          <span class="input-group-btn">[m
+[31m-            <button class="btn btn-sm btn-default" type="button">Go!</button>[m
+[31m-          </span>[m
+[31m-        </div>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-    <div class="table-responsive">[m
+[31m-      <table class="table table-striped b-t b-light">[m
+[31m-        <thead>[m
+[31m-          <tr>[m
+[31m-            <th style="width:20px;">[m
+[31m-              <label class="i-checks m-b-none">[m
+[31m-                <input type="checkbox"><i></i>[m
+[31m-              </label>[m
+[31m-            </th>[m
+[31m-            <th>Tên danh mục</th>[m
+[31m-            <th style="width:30px;"></th>[m
+[31m-          </tr>[m
+[31m-        </thead>[m
+[31m-        <?php[m
+[31m-            $message = Session::get('message');[m
+[31m-            if($message){[m
+[31m-              echo $message;[m
+[31m-              Session::put('message',null);[m
+[31m-            }[m
+[31m-            ?>[m
+[31m-        <tbody>[m
+[31m-          @foreach($all_category_book as $key => $cate_pro)[m
+[31m-          <tr>[m
+[31m-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>[m
+[31m-            <td> {{$cate_pro->category_name}}</td>[m
+[31m-            <td>[m
+[31m-              <a href="{{URL::to('/edit-category-book/'.$cate_pro->category_id)}}" class="active" ui-toggle-class="">[m
+[31m-                <i class="fa fa-pencil-square-o text-success text-active"></i>[m
+[31m-              </a>[m
+[31m-              <a onclick="return confirm('Bạn có muốn xoá danh mục này không?')" href="{{URL::to('/delete-category-book/'.$cate_pro->category_id)}}" class="active" ui-toggle-class="">[m
+[31m-                <i class="fa fa-times text-danger text"></i>[m
+[31m-              </a>[m
+[31m-              [m
+[31m-            </td>[m
+[31m-          </tr>[m
+[31m-          @endforeach[m
+[31m-        </tbody>[m
+[31m-      </table>[m
+[31m-    </div>[m
+[31m-@endsection[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/all_list.blade.php b/quanlythuvien/resources/views/admin/all_list.blade.php[m
+[1mindex a77a9ec..eccc17a 100644[m
+[1m--- a/quanlythuvien/resources/views/admin/all_list.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/admin/all_list.blade.php[m
+[36m@@ -4,7 +4,7 @@[m
+ <div class="table-agile-info">[m
+   <div class="panel panel-default">[m
+     <div class="panel-heading">[m
+[31m-      Show Stories[m
+[32m+[m[32m      Các danh sách mượn[m
+     </div>[m
+     <?php[m
+        $message = Session::get('message');[m
+[36m@@ -16,10 +16,10 @@[m
+     <div class="row w3-res-tb">[m
+       <div class="col-sm-5 m-b-xs">[m
+         <select class="input-sm form-control w-sm inline v-middle">[m
+[31m-          <option value="0">Bulk action</option>[m
+[31m-          <option value="1">Delete selected</option>[m
+[31m-          <option value="2">Bulk edit</option>[m
+[31m-          <option value="3">Export</option>[m
+[32m+[m[32m          <option value="0">Theo tên sách</option>[m
+[32m+[m[32m          <option value="1">Theo tên tác giả</option>[m
+[32m+[m[32m          <option value="2">Theo giá tiền</option>[m
+[32m+[m[32m          <option value="3">Theo thời gian</option>[m
+         </select>[m
+         <button class="btn btn-sm btn-default">Áp dụng</button>[m
+       </div>[m
+[36m@@ -27,7 +27,7 @@[m
+       </div>[m
+       <div class="col-sm-3">[m
+         <div class="input-group">[m
+[31m-        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/find-borrower">[m
+[32m+[m[32m        <form role ="search" method ="get" id = "searchform" action="/quanlythuvien/admin/find-borrower">[m
+                             <div class="form-group">[m
+                               <label for="name">Username</label>[m
+                               <input type="input" class="form-control rounded" id="name" placeholder="Search" name="key"/>[m
+[36m@@ -75,7 +75,8 @@[m
+       <div class="row">[m
+ [m
+         <div class="col-sm-5 text-center">[m
+[31m-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 </small>[m
+[32m+[m[32m          <small class="text-muted inline m-t-sm m-b-sm">cho thấy 20-30 của 50 </small>[m
+[32m+[m[32m          <p>{{ App\Http\Controllers\AdminController::gia_tien_theo_the_loai('Truyện Tranh')}}</p>[m
+         </div>[m
+         <div class="col-sm-7 text-right text-center-xs">[m
+           <ul class="pagination pagination-sm m-t-none m-b-none">[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/all_stories.blade.php b/quanlythuvien/resources/views/admin/all_stories.blade.php[m
+[1mindex 8bd6439..ebaa42d 100644[m
+[1m--- a/quanlythuvien/resources/views/admin/all_stories.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/admin/all_stories.blade.php[m
+[36m@@ -16,10 +16,10 @@[m
+     <div class="row w3-res-tb">[m
+       <div class="col-sm-5 m-b-xs">[m
+         <select class="input-sm form-control w-sm inline v-middle">[m
+[31m-          <option value="0">{{ App\Http\Controllers\CategoryStories::gia_tien_theo_the_loai('phieu luu')}}</option>[m
+[31m-          <option value="1">Delete selected</option>[m
+[31m-          <option value="2">Bulk edit</option>[m
+[31m-          <option value="3">Export</option>[m
+[32m+[m[32m          <option value="0">Theo tên sách</option>[m
+[32m+[m[32m          <option value="1">Theo tên tác giả</option>[m
+[32m+[m[32m          <option value="2">{{ App\Http\Controllers\CategoryStories::gia_tien_theo_the_loai('phieu luu')}}</option>[m
+[32m+[m[32m          <option value="3">Theo thời gian</option>[m
+         </select>[m
+         <button class="btn btn-sm btn-default">Áp dụng</button>[m
+       </div>[m
+[36m@@ -28,7 +28,7 @@[m
+       <div class="col-sm-3">[m
+         <div class="input-group">[m
+         <div class="input-group">[m
+[31m-                        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/admin/search">[m
+[32m+[m[32m                        <form role ="search" method ="get" id = "searchform" action="/quanlythuvien/admin/search">[m
+                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"[m
+                                 aria-describedby="search-addon" name="key"/>[m
+                         </form>[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/edit_category_book.blade.php b/quanlythuvien/resources/views/admin/edit_category_book.blade.php[m
+[1mdeleted file mode 100644[m
+[1mindex 5ba1206..0000000[m
+[1m--- a/quanlythuvien/resources/views/admin/edit_category_book.blade.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,40 +0,0 @@[m
+[31m-@extends('admin.admin_layout')[m
+[31m-@section('admin_content')[m
+[31m-<div class="row">[m
+[31m-            <div class="col-lg-12">[m
+[31m-                    <section class="panel">[m
+[31m-                        <header class="panel-heading">[m
+[31m-                            Cập nhật danh mục sách[m
+[31m-                        </header>[m
+[31m-                            <?php[m
+[31m-                            $message = Session::get('message');[m
+[31m-                            if($message){[m
+[31m-                                echo $message;[m
+[31m-                                Session::put('message',null);[m
+[31m-                            }[m
+[31m-                            ?>[m
+[31m-                        <div class="panel-body">[m
+[31m-                            @foreach($edit_category_book as $key => $edit_value)[m
+[31m-                            <div class="position-center">[m
+[31m-                                <form role="form" action="{{URL::to('/update-category-book/'.$edit_value ->category_id)}}" method="post">[m
+[31m-                                    {{csrf_field()}}[m
+[31m-                                <div class="form-group">[m
+[31m-                                    <label for="exampleInputPassword1">Mã DDC</label>[m
+[31m-                                    <input type="text" value="{{$edit_value->category_id}}" class="form-control" name="category_book_DDC" id="exampleInputPassword1" placeholder="Password">[m
+[31m-                                </div>[m
+[31m-                                <div class="form-group">[m
+[31m-                                    <label for="exampleInputEmail1">Tên danh mục</label>[m
+[31m-                                    <input type="text" value="{{$edit_value->category_name}}" class="form-control" name="category_book_name" id="exampleInputEmail1" placeholder="Enter email">[m
+[31m-                                </div>[m
+[31m-[m
+[31m-                                [m
+[31m-                                <button type="submit" name="update_category_book" class="btn btn-info">Cập nhật danh mục</button>[m
+[31m-                            </form>[m
+[31m-                            </div>[m
+[31m-                            @endforeach[m
+[31m-[m
+[31m-                        </div>[m
+[31m-                    </section>[m
+[31m-[m
+[31m-            </div>[m
+[31m-@endsection[m
+[1mdiff --git a/quanlythuvien/resources/views/admin/edit_stories.blade.php b/quanlythuvien/resources/views/admin/edit_stories.blade.php[m
+[1mindex 0d66b35..3e1784c 100644[m
+[1m--- a/quanlythuvien/resources/views/admin/edit_stories.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/admin/edit_stories.blade.php[m
+[36m@@ -43,9 +43,16 @@[m
+ [m
+                                <label for="exampleInputEmail1">Mã DDC</label>[m
+                                 <select class="form-control m-bot15"type="text"value="{{$edit_value->ma_ddc}}"name="stories_ddccode" class="form-control" id="exampleInputEmail1" placeholder="Enter email">[m
+[31m-                                    @foreach($cate_product as $key => $cate)[m
+[31m-                                        <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>[m
+[31m-                                    @endforeach[m
+[32m+[m[32m                                    <option>000 Những vấn đề chung</option>[m
+[32m+[m[32m                                    <option>100 Triết học và Tâm lý học</option>[m
+[32m+[m[32m                                    <option>200 Tôn giáo</option>[m
+[32m+[m[32m                                    <option>300 Khoa học Xã hội</option>[m
+[32m+[m[32m                                    <option>400 Ngôn ngữ</option>[m
+[32m+[m[32m                                    <option>500 Khoa học Tự nhiên</option>[m
+[32m+[m[32m                                    <option>600 Khoa học Ứng dụng </option>[m
+[32m+[m[32m                                    <option>700 Nghệ thuật</option>[m
+[32m+[m[32m                                    <option>800 Văn học và Tu từ học </option>[m
+[32m+[m[32m                                    <option>900 Địa lý và Lịch sử</option>[m
+                                 </select>[m
+ [m
+                                 <div class="form-group">[m
+[1mdiff --git a/quanlythuvien/resources/views/category/show_category_book.blade.php b/quanlythuvien/resources/views/category/show_category_book.blade.php[m
+[1mdeleted file mode 100644[m
+[1mindex b2bd886..0000000[m
+[1m--- a/quanlythuvien/resources/views/category/show_category_book.blade.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,60 +0,0 @@[m
+[31m-@extends('user_layout')[m
+[31m-@section('user_content')[m
+[31m-[m
+[31m-<div class="table-agile-info">[m
+[31m-  <div class="panel panel-default">[m
+[31m-    <div class="panel-heading">[m
+[31m-      Show Stories[m
+[31m-    </div>[m
+[31m-   [m
+[31m-    <div class="table-responsive">[m
+[31m-      <table class="table table-striped b-t b-light">[m
+[31m-        <thead>[m
+[31m-          <tr>[m
+[31m-            <th style="width:20px;">[m
+[31m-              <label class="i-checks m-b-none">[m
+[31m-                <input type="checkbox"><i></i>[m
+[31m-              </label>[m
+[31m-            </th>[m
+[31m-            <th>Tên sách</th>[m
+[31m-[m
+[31m-            <th style="width:30px;"></th>[m
+[31m-          </tr>[m
+[31m-        </thead>[m
+[31m-        <tbody>[m
+[31m-          @foreach($cate_by_id as $key => $cate_pro)[m
+[31m-          <tr>[m
+[31m-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>[m
+[31m-            <td>[m
+[31m-              <a href="#" >{{$cate_pro -> ten_sach}}</a>[m
+[31m-            </td>[m
+[31m-            [m
+[31m-              <a href="" class="active" ui-toggle-class=""><i class="fa fa-shopping-cart text-success text-active"></i><i class="fa fa fa-book text-active text"></i></a>[m
+[31m-            </td>[m
+[31m-          </tr>[m
+[31m-          @endforeach  [m
+[31m-        </tbody>[m
+[31m-      </table>[m
+[31m-    </div>[m
+[31m-    <footer class="panel-footer">[m
+[31m-      <div class="row">[m
+[31m-        [m
+[31m-        <div class="col-sm-5 text-center">[m
+[31m-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>[m
+[31m-        </div>[m
+[31m-        <div class="col-sm-7 text-right text-center-xs">                [m
+[31m-          <ul class="pagination pagination-sm m-t-none m-b-none">[m
+[31m-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>[m
+[31m-            <li><a href="">1</a></li>[m
+[31m-            <li><a href="">2</a></li>[m
+[31m-            <li><a href="">3</a></li>[m
+[31m-            <li><a href="">4</a></li>[m
+[31m-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>[m
+[31m-          </ul>[m
+[31m-        </div>[m
+[31m-      </div>[m
+[31m-    </footer>[m
+[31m-  </div>[m
+[31m-</div>[m
+[31m-[m
+[31m-@endsection[m
+\ No newline at end of file[m
+[1mdiff --git a/quanlythuvien/resources/views/show_category.blade.php b/quanlythuvien/resources/views/show_category.blade.php[m
+[1mdeleted file mode 100644[m
+[1mindex b16ae1e..0000000[m
+[1m--- a/quanlythuvien/resources/views/show_category.blade.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,60 +0,0 @@[m
+[31m-@extends('user_layout')[m
+[31m-@section('user_content')[m
+[31m-[m
+[31m-<div class="table-agile-info">[m
+[31m-  <div class="panel panel-default">[m
+[31m-    <div class="panel-heading">[m
+[31m-      Show Stories[m
+[31m-    </div>[m
+[31m-   [m
+[31m-    <div class="table-responsive">[m
+[31m-      <table class="table table-striped b-t b-light">[m
+[31m-        <thead>[m
+[31m-          <tr>[m
+[31m-            <th style="width:20px;">[m
+[31m-              <label class="i-checks m-b-none">[m
+[31m-                <input type="checkbox"><i></i>[m
+[31m-              </label>[m
+[31m-            </th>[m
+[31m-            <th>Tên danh mục</th>[m
+[31m-[m
+[31m-            <th style="width:30px;"></th>[m
+[31m-          </tr>[m
+[31m-        </thead>[m
+[31m-        <tbody>[m
+[31m-          @foreach($cate_product as $key => $cate_pro)[m
+[31m-          <tr>[m
+[31m-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>[m
+[31m-            <td>[m
+[31m-              <a href="{{URL::to('/danh-muc-sach/'.$cate_pro->category_id)}}" >{{$cate_pro -> category_name}}</a>[m
+[31m-            </td>[m
+[31m-            [m
+[31m-              <a href="" class="active" ui-toggle-class=""><i class="fa fa-shopping-cart text-success text-active"></i><i class="fa fa fa-book text-active text"></i></a>[m
+[31m-            </td>[m
+[31m-          </tr>[m
+[31m-          @endforeach  [m
+[31m-        </tbody>[m
+[31m-      </table>[m
+[31m-    </div>[m
+[31m-    <footer class="panel-footer">[m
+[31m-      <div class="row">[m
+[31m-        [m
+[31m-        <div class="col-sm-5 text-center">[m
+[31m-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>[m
+[31m-        </div>[m
+[31m-        <div class="col-sm-7 text-right text-center-xs">                [m
+[31m-          <ul class="pagination pagination-sm m-t-none m-b-none">[m
+[31m-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>[m
+[31m-            <li><a href="">1</a></li>[m
+[31m-            <li><a href="">2</a></li>[m
+[31m-            <li><a href="">3</a></li>[m
+[31m-            <li><a href="">4</a></li>[m
+[31m-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>[m
+[31m-          </ul>[m
+[31m-        </div>[m
+[31m-      </div>[m
+[31m-    </footer>[m
+[31m-  </div>[m
+[31m-</div>[m
+[31m-[m
+[31m-@endsection[m
+\ No newline at end of file[m
+[1mdiff --git a/quanlythuvien/resources/views/user/catalog.blade.php b/quanlythuvien/resources/views/user/catalog.blade.php[m
+[1mindex c0037ce..235b3d8 100644[m
+[1m--- a/quanlythuvien/resources/views/user/catalog.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/user/catalog.blade.php[m
+[36m@@ -16,23 +16,24 @@[m
+                 <input type="checkbox"><i></i>[m
+               </label>[m
+             </th>[m
+[31m-            <th>Tên danh mục</th>[m
+[31m-[m
+[32m+[m[32m            <th>Tên Sách</th>[m
+[32m+[m[32m            <th>Tên Tác Giả</th>[m
+[32m+[m[32m            <th>Thể Loại</th>[m
+             <th style="width:30px;"></th>[m
+           </tr>[m
+         </thead>[m
+         <tbody>[m
+[31m-          @foreach($cate_product as $key => $cate_pro)[m
+[32m+[m[32m          @foreach($all_stories as $key => $cate_pro)[m
+           <tr>[m
+             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>[m
+[32m+[m[32m            <td>{{$cate_pro -> ten_sach}}</td>[m
+[32m+[m[32m            <td><span class="text-ellipsis">{{$cate_pro -> ten_tac_gia}}</span></td>[m
+[32m+[m[32m            <td><span class="text-ellipsis">{{$cate_pro -> the_loai}}</span></td>[m
+             <td>[m
+[31m-              <a href="[{URL::to('./danhmuc/$cate_pro ->category_id)}]" >{{$cate_pro -> category_name}}</a>[m
+[31m-            </td>[m
+[31m-            [m
+               <a href="" class="active" ui-toggle-class=""><i class="fa fa-shopping-cart text-success text-active"></i><i class="fa fa fa-book text-active text"></i></a>[m
+             </td>[m
+           </tr>[m
+[31m-          @endforeach  [m
+[32m+[m[32m          @endforeach[m[41m [m
+         </tbody>[m
+       </table>[m
+     </div>[m
+[1mdiff --git a/quanlythuvien/resources/views/user/home.blade.php b/quanlythuvien/resources/views/user/home.blade.php[m
+[1mindex 3dc101b..4791e3c 100644[m
+[1m--- a/quanlythuvien/resources/views/user/home.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/user/home.blade.php[m
+[36m@@ -1,14 +1,12 @@[m
+ @extends('user_layout')[m
+[31m-@section('user_content')              [m
+[32m+[m[32m@section('user_content')[m
+ [m
+                     <header>[m
+[31m-                        <h2 class="tm-main-title">Welcome to our bookstore</h2>[m
+[32m+[m[32m                        <h2 class="tm-main-title">Chào mừng đến với ứng dụng của chúng tôi</h2>[m
+                     </header>[m
+ [m
+[31m-                    <p>Shelf HTML template is provided by Tooplate. Please tell your friends about it. Thank you. Images are from Unsplash website. In tincidunt metus sed justo tincidunt sollicitudin. Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat.</p>[m
+[31m-[m
+                     <div class="input-group">[m
+[31m-                        <form role ="search" method ="get" id = "searchform" action="/Ex1_Group4/quanlythuvien/search">[m
+[32m+[m[32m                        <form role ="search" method ="get" id = "searchform" action="{{URL::to('/search')}}">[m
+                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"[m
+                                 aria-describedby="search-addon" name="key"/>[m
+                         </form>[m
+[36m@@ -18,68 +16,60 @@[m
+                         <div class="row">[m
+ [m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-01.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+ [m
+[31m-                                    <p class="tm-figcaption">Nam vitae odio</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-02.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Integer ornare</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-03.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Cras non augue</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-04.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Dolor lacus</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-05.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Quisque velit</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-06.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Suspendisse suscipit</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-07.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Facilisis justo</p>[m
+                                 </a>[m
+                             </figure>[m
+                             <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">[m
+[31m-                                <a href="preview.html">[m
+[32m+[m[32m                                <a href="">[m
+                                     <div class="tm-gallery-item-overlay">[m
+                                         <img src="public/frontend/img/image-08.jpg" alt="Image" class="img-fluid tm-img-center">[m
+                                     </div>[m
+[31m-                                    <p class="tm-figcaption">Vivamus facilisis</p>[m
+                                 </a>[m
+                             </figure>[m
+                         </div>[m
+[36m@@ -112,8 +102,6 @@[m
+             </div>[m
+ [m
+             <footer>[m
+[31m-                Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company[m
+[31m-[m
+                 - Designed by Tooplate[m
+             </footer>[m
+[31m-@endsection[m
+\ No newline at end of file[m
+[32m+[m[32m@endsection[m
+[1mdiff --git a/quanlythuvien/resources/views/user/preview.blade.php b/quanlythuvien/resources/views/user/preview.blade.php[m
+[1mindex 7b21925..df56591 100644[m
+[1m--- a/quanlythuvien/resources/views/user/preview.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/user/preview.blade.php[m
+[36m@@ -1,135 +1,5 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html>[m
+[31m-<head>[m
+[31m-    <meta charset="utf-8">[m
+[31m-    <meta http-equiv="X-UA-Compatible" content="IE=edge">[m
+[31m-    <meta name="viewport" content="width=device-width, initial-scale=1">[m
+[31m-<!--[m
+[32m+[m[32m@extends('user_layout')[m
+ [m
+[31m-Template 2092 Shelf[m
+[31m-[m
+[31m-http://www.tooplate.com/view/2092-shelf[m
+[31m-[m
+[31m--->[m
+[31m-    <title>SHELF - Your Online Bookstore</title>[m
+[31m-[m
+[31m-    <!-- load stylesheets -->[m
+[31m-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->[m
+[31m-    <link rel="stylesheet" href="{{asset('public/frontend/font-awesome-4.7.0/css/font-awesome.min.css')}}">                <!-- Font Awesome -->[m
+[31m-    <link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->[m
+[31m-    <link rel="stylesheet" href="{{asset('public/frontend/css/tooplate-style.css')}}">                                   <!-- Templatemo style -->[m
+[31m-[m
+[31m-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->[m
+[31m-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->[m
+[31m-        <!--[if lt IE 9]>[m
+[31m-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>[m
+[31m-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>[m
+[31m-          <![endif]-->[m
+[31m-</head>[m
+[31m-[m
+[31m-    <body>[m
+[31m-        [m
+[31m-        <div class="container">[m
+[31m-            <header class="tm-site-header">[m
+[31m-                <h1 class="tm-site-name">Shelf</h1>[m
+[31m-                <p class="tm-site-description">Your Online Bookstore</p>[m
+[31m-                [m
+[31m-                <nav class="navbar navbar-expand-md tm-main-nav-container">[m
+[31m-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">[m
+[31m-                            <i class="fa fa-bars"></i>[m
+[31m-                    </button>[m
+[31m-[m
+[31m-                    <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">[m
+[31m-                        <ul class="nav nav-fill tm-main-nav-ul">[m
+[31m-                            <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Home</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/catalog')}}">Catalogs</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Our Team</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li>[m
+[31m-                        </ul>[m
+[31m-                    </div>[m
+[31m-                </nav>[m
+[31m-                [m
+[31m-            </header>[m
+[31m-            [m
+[31m-            <div class="tm-main-content no-pad-b">[m
+[31m-                    [m
+[31m-                <section class="row tm-item-preview">[m
+[31m-                    <div class="col-md-6 col-sm-12 mb-md-0 mb-5">[m
+[31m-                        <img src="img/image-05-preview.jpg" alt="Image" class="img-fluid tm-img-center-sm">[m
+[31m-                    </div>[m
+[31m-                    <div class="col-md-6 col-sm-12">[m
+[31m-                        <h2 class="tm-blue-text tm-margin-b-p">Mauris cursus turpis</h2>[m
+[31m-                        <p class="tm-margin-b-p">Suspendisse suscipit tortor eu nunc fermentum pellentesque. Donec vaius diam ut velit porttitor accumsan. Cras ac porttitor urna, in vehicula diam. Ut ultricies leo dapibus, facilisis justo vel, dignissim tortor.</p>[m
+[31m-                        <p class="tm-margin-b-p">Ut iaculis vel libero a auctor. Integer arcu orci, vaius id velit sed, lacinia venenatis felis. Integer in facilisis tortor. Vivamus facilisis mattis finibus. Vestibulum in aliquam nisl. Nunc pretium elementum posuere.</p>[m
+[31m-                        <p class="tm-margin-b-p">Nunc vulputate placerat pulvinar. Integer ornare, enim et vestibulum mattis, dolor lacus congue sapien, eget tempor sapien est ut mauris.</p>[m
+[31m-                        <p class="tm-blue-text tm-margin-b-s">Categories: <a href="#" class="tm-blue-text">New Story</a>, <a href="#" class="tm-blue-text">Epic</a>, <a href="#" class="tm-blue-text">Popular</a></p>[m
+[31m-                        <p class="tm-blue-text tm-margin-b-s">Views: 10,890</p>[m
+[31m-                        <p class="tm-blue-text tm-margin-b">Rating: <img src="img/star.png" alt="Star image"> <img src="img/star.png" alt="Star image"> <img src="img/star.png" alt="Star image"> <img src="img/star.png" alt="Star image"></p>[m
+[31m-                        <a href="#" class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s">Preview</a><a href="#" class="tm-btn tm-btn-blue">Download</a>[m
+[31m-                    </div>[m
+[31m-                </section>[m
+[31m-[m
+[31m-                <div class="tm-gallery no-pad-b">[m
+[31m-                    <div class="row">[m
+[31m-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">[m
+[31m-                            <a href="preview.html">[m
+[31m-                                <div class="tm-gallery-item-overlay">[m
+[31m-                                    <img src="img/image-06.jpg" alt="Image" class="img-fluid tm-img-center">[m
+[31m-                                </div>[m
+[31m-                                <p class="tm-figcaption no-pad-b">Suspendisse suscipit</p>[m
+[31m-                            </a>[m
+[31m-                        </figure>[m
+[31m-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">[m
+[31m-                            <a href="preview.html">[m
+[31m-                                <div class="tm-gallery-item-overlay">[m
+[31m-                                    <img src="img/image-03.jpg" alt="Image" class="img-fluid tm-img-center">[m
+[31m-                                </div>[m
+[31m-                                <p class="tm-figcaption no-pad-b">Cras non augue</p>[m
+[31m-                            </a>[m
+[31m-                        </figure>[m
+[31m-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">[m
+[31m-                            <a href="preview.html">[m
+[31m-                                <div class="tm-gallery-item-overlay">[m
+[31m-                                    <img src="img/image-08.jpg" alt="Image" class="img-fluid tm-img-center">[m
+[31m-                                </div>[m
+[31m-                                <p class="tm-figcaption no-pad-b">Vivamus facilisis</p>[m
+[31m-                            </a>[m
+[31m-                        </figure> [m
+[31m-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">[m
+[31m-                            <a href="preview.html">[m
+[31m-                                <div class="tm-gallery-item-overlay">[m
+[31m-                                    <img src="img/image-05.jpg" alt="Image" class="img-fluid tm-img-center">[m
+[31m-                                </div>[m
+[31m-                                <p class="tm-figcaption no-pad-b">Quisque velit</p>[m
+[31m-                            </a>[m
+[31m-                        </figure>[m
+[31m-                    </div>   [m
+[31m-                </div>                    [m
+[31m-                            [m
+[31m-            </div>[m
+[31m-[m
+[31m-            <footer>[m
+[31m-                Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company [m
+[31m-                [m
+[31m-                - Designed by Tooplate[m
+[31m-            </footer>    [m
+[31m-        </div>[m
+[31m-        [m
+[31m-        <!-- load JS files -->[m
+[31m-        <script src="{{asset('public/frontend/js/jquery-1.11.3.min.js')}}"></script>         <!-- jQuery (https://jquery.com/download/) -->[m
+[31m-        <script src="{{asset('public/frontend/js/popper.min.js')}}"></script>                <!-- Popper (https://popper.js.org/) -->[m
+[31m-        <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->[m
+[31m-        <script>     [m
+[31m-       [m
+[31m-            $(document).ready(function(){[m
+[31m-                [m
+[31m-                // Update the current year in copyright[m
+[31m-                $('.tm-current-year').text(new Date().getFullYear());[m
+[31m-[m
+[31m-            });[m
+[31m-[m
+[31m-        </script>             [m
+[31m-[m
+[31m-</body>[m
+[31m-</html>[m
+\ No newline at end of file[m
+[32m+[m[32m@section('user_content')[m
+[32m+[m[41m  [m
+[32m+[m[32m@endsection[m
+[1mdiff --git a/quanlythuvien/resources/views/user/team.blade.php b/quanlythuvien/resources/views/user/team.blade.php[m
+[1mindex 44a935f..3f4ce35 100644[m
+[1m--- a/quanlythuvien/resources/views/user/team.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/user/team.blade.php[m
+[36m@@ -1,138 +1,11 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html lang="en">[m
+[31m-<head>[m
+[31m-    <meta charset="utf-8">[m
+[31m-    <meta http-equiv="X-UA-Compatible" content="IE=edge">[m
+[31m-    <meta name="viewport" content="width=device-width, initial-scale=1">[m
+[31m-<!--[m
+[31m-[m
+[31m-Template 2092 Shelf[m
+[31m-[m
+[31m-http://www.tooplate.com/view/2092-shelf[m
+[31m-[m
+[31m--->[m
+[31m-    <title>SHELF - Your Online Bookstore</title>[m
+[31m-[m
+[31m-    <!-- load stylesheets -->[m
+[31m-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->[m
+[31m-    <link rel="stylesheet" href="{{asset('public/frontend/font-awesome-4.7.0/css/font-awesome.min.css')}}">                <!-- Font Awesome -->[m
+[31m-    <link rel="stylesheet" href="{{asset('public/frontend/css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->[m
+[31m-    <link rel="stylesheet" href="{{asset('public/frontend/css/tooplate-style.css')}}">                                   <!-- Templatemo style -->[m
+[31m-[m
+[31m-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->[m
+[31m-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->[m
+[31m-        <!--[if lt IE 9]>[m
+[31m-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>[m
+[31m-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>[m
+[31m-          <![endif]-->[m
+[31m-</head>[m
+[31m-[m
+[31m-    <body>[m
+[31m-        [m
+[31m-        <div class="container">[m
+[31m-            <header class="tm-site-header">[m
+[31m-                <h1 class="tm-site-name">Shelf</h1>[m
+[31m-                <p class="tm-site-description">Your Online Bookstore</p>[m
+[31m-                [m
+[31m-                <nav class="navbar navbar-expand-md tm-main-nav-container">[m
+[31m-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">[m
+[31m-                            <i class="fa fa-bars"></i>[m
+[31m-                    </button>[m
+[31m-[m
+[31m-                   <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">[m
+[31m-                        <ul class="nav nav-fill tm-main-nav-ul">[m
+[31m-                            <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Home</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/catalog')}}">Catalogs</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Our Team</a></li>[m
+[31m-                            <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li>[m
+[31m-                        </ul>[m
+[31m-                    </div>[m
+[31m-                </nav>[m
+[31m-                [m
+[31m-            </header>[m
+[31m-            [m
+[31m-            <div class="tm-main-content">                    [m
+[31m-                <section class="row tm-item-preview tm-margin-b-xl">[m
+[31m-                    <div class="col-12">[m
+[31m-                        <h2 class="tm-blue-text tm-margin-b-p">Our Team</h2>[m
+[31m-                    </div>[m
+[31m-                    <div class="col-md-6 col-sm-12 mb-md-0 mb-5">         [m
+[31m-                        <div class="mr-lg-5">[m
+[31m-                            <p class="tm-margin-b-p">Pellentesque id ligula vitae velit eleifend ultrices. Aliquam erat orci, sollicitudin ut ipsum in, lobortis dignissim lacus. Sed mattis et risus nec sagittis. Integer ac purus et nulla placerat accumsan nec ut mauris.</p>[m
+[31m-                            <p class="tm-margin-b-p">Duis pharetra neque nisi, id consequat magna fermentum id. Nam venenatis eu augue sed pellentesque. Cras ex elit, vulputate eu urna laoreet, dictum vehicula risus. Nulla quis enim dictum, eleifend felis sit amet, tincidunt lacus.</p>[m
+[31m-                            <p>Proin condimentum enim eros, non posuere ipsum ornare rutrum. Integer nunc nibh, aliquam vitae magna eu.</p>                        [m
+[31m-                        </div>                                       [m
+[31m-                    </div>[m
+[31m-                    <div class="col-md-6 col-sm-12 tm-highlight tm-small-pad">[m
+[31m-                        <h2 class="tm-margin-b-p">Fusce pharetra gravida</h2>[m
+[31m-                        <p class="tm-margin-b-p">Aliquam ipsum risus, pulvinar in lorem lobortis, porta fringilla tellus. Mauris ultrices mattis porttitor. Aenean in interdum metus.</p>[m
+[31m-                        <p>Aliquam pulvinar at nisl ut cursus. Suspendisse pulvinar neque eget metus hendrerit pharetra. Phasellus vel neque vitae risus consectetur maximus quis non dolor.</p>[m
+[31m-                    </div>[m
+[31m-                </section>[m
+[31m-[m
+[31m-                <div class="row tm-margin-b-ll">[m
+[31m-                    <article class="col-12 col-sm-12 col-md-4 col-lg-4 mb-md-0 mb-5">[m
+[31m-                        <div class="text-center tm-margin-b-30"><i class="fa tm-fa-6x fa-linode tm-blue-text"></i></div>[m
+[31m-                        <header class="tm-margin-b-30"><h3 class="tm-blue-text tm-h3">Duis eget maximus</h3></header>[m
+[31m-                        <p>Nam mollis placerat est, sed condimentum magna maximus non. Integer dictum cursus nisl, nec viverra enim maximus eget.</p>[m
+[31m-                    </article>[m
+[31m-                    <article class="col-12 col-sm-12 col-md-4 col-lg-4 mb-md-0 mb-5">[m
+[31m-                        <div class="text-center tm-margin-b-30"><i class="fa tm-fa-6x fa-telegram tm-blue-text"></i></div>[m
+[31m-                        <header class="tm-margin-b-30"><h3 class="tm-blue-text tm-h3">Aliquam porta dui #069</h3></header>[m
+[31m-                        <p>Duis vulputate, sem id consequat suscipit, erat felis vehicula turpis, a lobortis dui velit non libero. In hac habitasse platea dictumst.</p>[m
+[31m-                    </article>[m
+[31m-                    <article class="col-12 col-sm-12 col-md-4 col-lg-4 mb-md-0 mb-5">[m
+[31m-                        <div class="text-center tm-margin-b-30"><i class="fa tm-fa-6x fa-superpowers tm-blue-text"></i></div>[m
+[31m-                        <header class="tm-margin-b-30"><h3 class="tm-blue-text tm-h3">Curabitur aliquam auctor</h3></header>[m
+[31m-                        <p>Donec auctor turpis risus, et euismod sem mattis eget. Donec at lorem finibus, fermentum risus vel, facilisis justo.</p>[m
+[31m-                    </article>[m
+[31m-                </div>[m
+[31m-[m
+[31m-                <div class="row tm-hightlight tm-margin-b-ll tm-highlight tm-small-pad">[m
+[31m-                    <article class="col-12 col-sm-12 col-md-6 col-lg-6 tm-font-thin mb-md-0 mb-5">[m
+[31m-                        <header class="tm-margin-b-30"><h3 class="tm-font-thin">Nam venenatis eu augue sed</h3></header>[m
+[31m-                        <p>Cras ex elit, vulputate eu urna laoreet, dictum vehicula risus. Nulla quis enim dictum, eleifend felis sit amet, tincidunt lacus. Proin condimentum enim eros, non posuere ipsum ornare rutrum.</p>[m
+[31m-                    </article>[m
+[31m-                    <article class="col-12 col-sm-12 col-md-6 col-lg-6 tm-font-thin">[m
+[31m-                        <header class="tm-margin-b-30"><h3 class="tm-green-text tm-font-thin">Integer dignissim lorem #CFC</h3></header>[m
+[31m-                        <p>Curabitur non sodales lacus. Aenean sit amet lorem vitae nibh feugiat eleifend sed a odio. Morbi ultricies nunc et quam elementum, et finibus ipsum consectetur. Mauris tempor justo id suscipit.</p>[m
+[31m-                    </article>[m
+[31m-                </div>  [m
+[31m-[m
+[31m-                <div class="row">[m
+[31m-                    <article class="col-12">[m
+[31m-                        <header class="tm-margin-b-30">[m
+[31m-                            <h3 class="tm-blue-text">Nam venenatis eu augue sed</h3>[m
+[31m-                        </header>[m
+[31m-                        <p class="tm-margin-b-p">Morbi auctor euismod dictum. Morbi eu nibh in nulla interdum placerat. Donec pellentesque est at sem aliquam hendrerit. Cras condimentum erat a sapien cursus, vel auctor odio cursus. Aenean ac mauris at ex venenatis lobortis id in ante. Nunc tristique, augue facilisis consectetur laoreet, sapien odio sodales risus, vitae condimentum arcu tellus eget lorem.</p>[m
+[31m-                            <p>Cras tincidunt aliquam libero quis vehicula. Phasellus efficitur mattis lectus, sed dictum nisi ullamcorper non. Proin orci lacus, elementum a volutpat vitae, commodo vitae justo. Donec gravida purus non urna convallis consequat. In pharetra mollis nisi ut convallis. Maecenas sit amet dolor et purus mattis gravida.</p>[m
+[31m-                    </article>[m
+[31m-                </div>               [m
+[31m-                            [m
+[31m-            </div>[m
+[31m-[m
+[31m-            <footer>[m
+[31m-                Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company [m
+[31m-                [m
+[31m-                - Designed by Tooplate[m
+[31m-            </footer>    [m
+[31m-        </div>[m
+[31m-        [m
+[31m-        <!-- load JS files -->[m
+[31m-        <script src="{{asset('public/frontend/js/jquery-1.11.3.min.js')}}"></script>         <!-- jQuery (https://jquery.com/download/) -->[m
+[31m-        <script src="{{asset('public/frontend/js/popper.min.js')}}"></script>                <!-- Popper (https://popper.js.org/) -->[m
+[31m-        <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->[m
+[31m-        <script>     [m
+[31m-       [m
+[31m-            $(document).ready(function(){[m
+[31m-                [m
+[31m-                // Update the current year in copyright[m
+[31m-                $('.tm-current-year').text(new Date().getFullYear());[m
+[31m-[m
+[31m-            });[m
+[31m-[m
+[31m-        </script>             [m
+[31m-[m
+[31m-</body>[m
+[31m-</html>[m
+\ No newline at end of file[m
+[32m+[m[32m@extends('user_layout')[m
+[32m+[m
+[32m+[m[32m@section('user_content')[m
+[32m+[m[32m  <ul>[m
+[32m+[m[32m    <li>Bùi Đức Khải</li>[m
+[32m+[m[32m    <li>Lê An Bình</li>[m
+[32m+[m[32m    <li>Trần Long Hoàng</li>[m
+[32m+[m[32m    <li>Ngô Công Thức</li>[m
+[32m+[m[32m    <li>Quang Thế</li>[m
+[32m+[m[32m  </ul>[m
+[32m+[m[32m@endsection[m
+[1mdiff --git a/quanlythuvien/resources/views/user_layout.blade.php b/quanlythuvien/resources/views/user_layout.blade.php[m
+[1mindex 1d9869e..1ee08c7 100644[m
+[1m--- a/quanlythuvien/resources/views/user_layout.blade.php[m
+[1m+++ b/quanlythuvien/resources/views/user_layout.blade.php[m
+[36m@@ -115,7 +115,7 @@[m
+       <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">[m
+         <ul class="navbar-nav nav-fill tm-main-nav-ul">[m
+           <li class="nav-item"><a class="nav-link active" href="{{URL::to('/Home')}}">Trang chủ</a></li>[m
+[31m-          <li class="nav-item"><a class="nav-link" href="{{URL::to('show_category')}}">Danh sách sách</a></li>[m
+[32m+[m[32m          <li class="nav-item"><a class="nav-link" href="{{URL::to('/catalog')}}">Danh sách sách</a></li>[m
+           <li class="nav-item"><a class="nav-link" href="{{URL::to('/our-team')}}">Giới thiệu về nhóm</a></li>[m
+           <!-- <li class="nav-item"><a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a></li> -->[m
+         </ul>[m
+[1mdiff --git a/quanlythuvien/routes/web.php b/quanlythuvien/routes/web.php[m
+[1mindex f92949c..b7093ae 100644[m
+[1m--- a/quanlythuvien/routes/web.php[m
+[1m+++ b/quanlythuvien/routes/web.php[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-<?php[m
+[32m+[m[32m  <?php[m
+ [m
+ use App\Http\Controllers\AdminController;[m
+ use Illuminate\Support\Facades\Route;[m
+[36m@@ -16,11 +16,9 @@[m [muse Illuminate\Support\Facades\Route;[m
+ //frontend[m
+ Route::get('/', 'HomeController@home');[m
+ Route::get('/Home', 'HomeController@home');[m
+[31m-Route::get('/show_category', 'HomeController@all_catalog');[m
+[32m+[m[32mRoute::get('/catalog', 'HomeController@all_catalog');[m
+ Route::get('/our-team', 'HomeController@ourteam');[m
+ Route::get('/contact-us', 'HomeController@contactus');[m
+[31m-//Danh muc sach[m
+[31m-Route::get('/danh-muc-sach/{category_id}','CategoryBook@show_category');[m
+ [m
+ //backend[m
+ Route::get('/admin', 'AdminController@index');[m
+[36m@@ -69,11 +67,3 @@[m [mRoute::get("/search",'HomeController@getSearch');[m
+ Route::get("/admin/search", 'AdminController@getSearch');[m
+ Route::get("/admin/find-borrower", 'AdminController@getBorrower');[m
+ [m
+[31m-//Category book[m
+[31m-Route::get('/add-category-book','CategoryBook@add_category_book');[m
+[31m-Route::get('/all-category-book','CategoryBook@all_category_book');[m
+[31m-Route::get('/edit-category-book/{category_id}','CategoryBook@edit_category_book');[m
+[31m-Route::get('/delete-category-book/{category_id}','CategoryBook@delete_category_book');[m
+[31m-[m
+[31m-Route::post('/save-category-book','CategoryBook@save_category_book');[m
+[31m-Route::post('/update-category-book/{category_id}','CategoryBook@update_category_book');[m
+\ No newline at end of file[m

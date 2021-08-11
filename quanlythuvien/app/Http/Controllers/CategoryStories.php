@@ -25,16 +25,7 @@ class CategoryStories extends Controller
         return view('admin.admin_layout')->with('admin.all_stories',$manager_stories);
     }
 
-    public static function gia_tien_theo_the_loai($the_loai)
-    {
-      $all_stories_with_same_type = DB::table('sach')->where('the_loai', $the_loai)->get();
-      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";
-      $tong_gia_tien = 0;
-      foreach ($all_stories_with_same_type as $story) {
-        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;
-      }
-      return $tong_gia_tien;
-    }
+    
 
     public function save_stories(Request $request){
 

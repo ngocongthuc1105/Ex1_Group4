@@ -37,6 +37,39 @@ class AdminController extends Controller
         return Redirect::to('/admin');
     }
 
+    public static function gia_tien_theo_the_loai($the_loai)
+    {
+      $all_stories_with_same_type = DB::table('sach')->where('the_loai', $the_loai)->get();
+      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";
+      $tong_gia_tien = 0;
+      foreach ($all_stories_with_same_type as $story) {
+        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;
+      }
+      return $tong_gia_tien;
+    }
+
+    public static function gia_tien_theo_tac_gia($ten_tac_gia)
+    {
+      $all_stories_with_same_type = DB::table('sach')->where('ten_tac_gia', $ten_tac_gia)->get();
+      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";
+      $tong_gia_tien = 0;
+      foreach ($all_stories_with_same_type as $story) {
+        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;
+      }
+      return $tong_gia_tien;
+    }
+
+    public static function gia_tien_theo_nxb($nxb)
+    {
+      $all_stories_with_same_type = DB::table('sach')->where('nxb', $nxb)->get();
+      if(count($all_stories_with_same_type) == 0) return "Không có bản ghi trong csdl";
+      $tong_gia_tien = 0;
+      foreach ($all_stories_with_same_type as $story) {
+        $tong_gia_tien = $tong_gia_tien + $story->gia_tien;
+      }
+      return $tong_gia_tien;
+    }
+
     public function getSearch(Request $req){
         $book = DB::table('sach')->where('ten_sach','like','%'.$req->key.'%')
                                 ->orWhere('ten_tac_gia','like','%'.$req->key.'%')
