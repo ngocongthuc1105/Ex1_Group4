@@ -11,7 +11,8 @@ session_start();
 class CategoryStories extends Controller
 {
     public function add_stories(){
-        return view('admin.add_stories');
+        $cate_product = DB::table('category_book')->orderBy('category_id','desc') ->get();
+        return view('admin.add_stories')->with('cate_product',$cate_product);
     }
     //review
     public function show_review($ma_sach){
@@ -56,8 +57,9 @@ class CategoryStories extends Controller
         return Redirect::to('/add-stories');
     }
      public function edit_stories($ma_sach){
+        $cate_product = DB::table('category_book')->orderBy('category_id','desc') ->get();
         $edit_stories = DB::table('sach')->where('ma_sach',$ma_sach)->get();
-        $manager_stories = view('admin.edit_stories')->with('edit_stories',$edit_stories);
+        $manager_stories = view('admin.edit_stories')->with('edit_stories',$edit_stories)->with('cate_product',$cate_product);
         return view('admin.admin_layout')->with('admin.edit_stories',$manager_stories);
     }
     public function update_stories(Request $request,$ma_sach){

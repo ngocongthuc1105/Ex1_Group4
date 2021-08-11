@@ -16,17 +16,17 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên danh mục</th>
+            <th>Tên sách</th>
 
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-          @foreach($cate_product as $key => $cate_pro)
+          @foreach($cate_by_id as $key => $cate_pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>
-              <a href="[{URL::to('./danhmuc/$cate_pro ->category_id)}]" >{{$cate_pro -> category_name}}</a>
+              <a href="#" >{{$cate_pro -> ten_sach}}</a>
             </td>
             
               <a href="" class="active" ui-toggle-class=""><i class="fa fa-shopping-cart text-success text-active"></i><i class="fa fa fa-book text-active text"></i></a>

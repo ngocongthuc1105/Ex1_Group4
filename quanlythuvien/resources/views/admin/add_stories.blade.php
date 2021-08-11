@@ -47,18 +47,12 @@
 
                                 </select>
 
-                               <label for="exampleInputEmail1">Mã DDC</label>
+                               <label for="exampleInputEmail1">Danh mục</label>
                                 <select class="form-control m-bot15"type="text"name="stories_ddccode" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    <option>000 Những vấn đề chung</option>
-                                    <option>100 Triết học và Tâm lý học</option>
-                                    <option>200 Tôn giáo</option>
-                                    <option>300 Khoa học Xã hội</option>
-                                    <option>400 Ngôn ngữ</option>
-                                    <option>500 Khoa học Tự nhiên</option>
-                                    <option>600 Khoa học Ứng dụng </option>
-                                    <option>700 Nghệ thuật</option>
-                                    <option>800 Văn học và Tu từ học </option>
-                                    <option>900 Địa lý và Lịch sử</option>
+                                    @foreach($cate_product as $key => $cate)
+                                        <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                                    @endforeach
+                                   
                                 </select>
 
 

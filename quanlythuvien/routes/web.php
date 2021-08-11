@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 //frontend
 Route::get('/', 'HomeController@home');
 Route::get('/Home', 'HomeController@home');
-Route::get('/catalog', 'HomeController@all_catalog');
+Route::get('/show_category', 'HomeController@all_catalog');
 Route::get('/our-team', 'HomeController@ourteam');
 Route::get('/contact-us', 'HomeController@contactus');
+//Danh muc sach
+Route::get('/danh-muc-sach/{category_id}','CategoryBook@show_category');
 
 //backend
 Route::get('/admin', 'AdminController@index');
@@ -67,3 +69,11 @@ Route::get("/search",'HomeController@getSearch');
 Route::get("/admin/search", 'AdminController@getSearch');
 Route::get("/admin/find-borrower", 'AdminController@getBorrower');
 
+//Category book
+Route::get('/add-category-book','CategoryBook@add_category_book');
+Route::get('/all-category-book','CategoryBook@all_category_book');
+Route::get('/edit-category-book/{category_id}','CategoryBook@edit_category_book');
+Route::get('/delete-category-book/{category_id}','CategoryBook@delete_category_book');
+
+Route::post('/save-category-book','CategoryBook@save_category_book');
+Route::post('/update-category-book/{category_id}','CategoryBook@update_category_book');
