@@ -15,7 +15,7 @@ class CreateMuon extends Migration
     {
         Schema::create('muon', function (Blueprint $table) {
             $table->increments('ma_muon');
-            $table->integer('user_id');
+            $table->string('user_name',100);
             $table->string('ma_sach',100);
             $table->integer('so_luong');
             $table->date('ngay_muon');

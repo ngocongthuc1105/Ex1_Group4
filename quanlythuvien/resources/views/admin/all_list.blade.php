@@ -4,7 +4,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Show Stories
+      Các danh sách mượn
     </div>
     <?php
        $message = Session::get('message');
@@ -16,10 +16,10 @@
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
         <select class="input-sm form-control w-sm inline v-middle">
-          <option value="0">Bulk action</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
+          <option value="0">Theo tên sách</option>
+          <option value="1">Theo tên tác giả</option>
+          <option value="2">Theo giá tiền</option>
+          <option value="3">Theo thời gian</option>
         </select>
         <button class="btn btn-sm btn-default">Áp dụng</button>
       </div>
@@ -75,7 +75,7 @@
       <div class="row">
 
         <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 </small>
+          <small class="text-muted inline m-t-sm m-b-sm">cho thấy 20-30 của 50 </small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">

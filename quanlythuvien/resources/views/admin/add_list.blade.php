@@ -51,7 +51,7 @@
                                     <input type="file" id="exampleInputFile">
                                     <p class="help-block"></p>
                                 </div>-->
-                                <button type="submit" class="btn btn-info">Submit</button>
+                                <button type="submit" class="btn btn-info">Ghi dữ liệu</button>
                             </form>
                             </div>
 

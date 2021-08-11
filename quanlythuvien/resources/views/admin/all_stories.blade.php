@@ -16,10 +16,10 @@
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
         <select class="input-sm form-control w-sm inline v-middle">
-          <option value="0">{{ App\Http\Controllers\CategoryStories::gia_tien_theo_the_loai('phieu luu')}}</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
+          <option value="0">Theo tên sách</option>
+          <option value="1">Theo tên tác giả</option>
+          <option value="2">{{ App\Http\Controllers\CategoryStories::gia_tien_theo_the_loai('phieu luu')}}</option>
+          <option value="3">Theo thời gian</option>
         </select>
         <button class="btn btn-sm btn-default">Áp dụng</button>
       </div>
